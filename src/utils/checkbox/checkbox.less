@@ -1,0 +1,28 @@
+@import "../colors";
+
+.checkbox {
+  #checkbox {
+    display: none;
+  }
+
+  label {
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  #checkbox + label span {
+    border-radius: 4px;
+    display: inline-block;
+    vertical-align: middle;
+    height: 24px;
+    width: 24px;
+    background-color: @darkLight;
+    margin-right: 5px;
+    box-shadow: 1px 1px 4px gray;
+  }
+
+  #checkbox:checked + label span {
+    background: url("../../assets/img/checkbox-selected.svg") no-repeat center center;
+    background-size: cover;
+  }
+}

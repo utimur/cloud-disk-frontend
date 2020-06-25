@@ -5,5 +5,10 @@
   padding: 3px 20px;
   background-color: #566885;
   color: #F6F5F3;
+  box-shadow: 2px 2px 4px gray;
+}
+.button:focus,
+.button:active {
+  outline: none;
 }
 /*# sourceMappingURL=button.css.map */

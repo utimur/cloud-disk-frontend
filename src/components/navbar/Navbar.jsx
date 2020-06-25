@@ -2,11 +2,12 @@ import React from 'react';
 import './navbar.css'
 import logo from '../../assets/img/navbar-logo.svg'
 import avatar from '../../assets/img/navbar-avatar.svg'
+import {useSelector} from "react-redux";
 
 const Navbar = (props) => {
 
-    const isAuth = false;
-    console.log(props)
+    const isAuth = useSelector(state => state.userReducer.isAuth)
+
     return (
         <div className="navbar">
             <div className="navbar-wrap">

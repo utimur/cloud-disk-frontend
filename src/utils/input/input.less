@@ -1,10 +1,5 @@
 @import "../colors";
 
-@font-face {
-  font-family: RobotoMedium; /* Имя шрифта */
-  src: url(../../assets/fonts/roboto/RobotoMedium/RobotoMedium.ttf); /* Путь к файлу со шрифтом */
-}
-
 .input-text {
   border: none;
   border-bottom: solid 2px @darkLight;
@@ -13,7 +8,7 @@
   font-weight: 700;
   color: @darkLight;
   &:focus, &:active {
-    border-bottom: solid 3px @darkLight;
+    transform: scale(1.02);
     outline: none;
   }
 

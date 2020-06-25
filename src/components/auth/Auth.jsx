@@ -4,8 +4,11 @@ import logo from '../../assets/img/auth-logo.svg'
 import {Route} from "react-router-dom";
 import LoginForm from "./loginForm/LoginForm";
 import RegistrationForm from "./RegistrationForm/RegistrationForm";
+import {useSelector} from "react-redux";
 
 const Auth = () => {
+    const isAuth = useSelector(state => state.userReducer.isAuth)
+
     return (
         <div className="auth">
             <div className="auth-flex">
@@ -14,8 +17,8 @@ const Auth = () => {
                     <div className="auth-header-text">Добро пожаловать в DropDisk</div>
                 </div>
                 <div className="auth-form">
-                    <Route path="/auth/login" component={LoginForm}/>
-                    <Route path="/auth/registration" component={RegistrationForm}/>
+                    {!isAuth && <Route path="/auth/login" component={LoginForm}/>}
+                    {!isAuth && <Route path="/auth/registration" component={RegistrationForm}/>}
                 </div>
             </div>
         </div>
