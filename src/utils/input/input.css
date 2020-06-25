@@ -1,0 +1,20 @@
+@font-face {
+  font-family: RobotoMedium;
+  /* Имя шрифта */
+  src: url(../../assets/fonts/roboto/RobotoMedium/RobotoMedium.ttf);
+  /* Путь к файлу со шрифтом */
+}
+.input-text {
+  border: none;
+  border-bottom: solid 2px #566885;
+  background: none;
+  padding: 2px 0;
+  font-weight: 700;
+  color: #566885;
+}
+.input-text:focus,
+.input-text:active {
+  border-bottom: solid 3px #566885;
+  outline: none;
+}
+/*# sourceMappingURL=input.css.map */

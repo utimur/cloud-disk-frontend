@@ -1,0 +1,38 @@
+.navbar {
+  background-color: #566885;
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navbar-wrap {
+  width: 1080px;
+  display: flex;
+  align-items: center;
+}
+.navbar-wrap .logo-name {
+  font-size: 20px;
+  font-weight: 500;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.navbar-wrap .right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+.navbar-wrap .right .username {
+  font-size: 14px;
+  margin-right: 5px;
+}
+.navbar-wrap .right .login {
+  margin-right: 15px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.navbar-wrap .right .regist {
+  font-size: 14px;
+  cursor: pointer;
+}
+/*# sourceMappingURL=navbar.css.map */

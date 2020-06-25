@@ -1,0 +1,22 @@
+@import "../colors";
+
+@font-face {
+  font-family: RobotoMedium; /* Имя шрифта */
+  src: url(../../assets/fonts/roboto/RobotoMedium/RobotoMedium.ttf); /* Путь к файлу со шрифтом */
+}
+
+.input-text {
+  border: none;
+  border-bottom: solid 2px @darkLight;
+  background: none;
+  padding: 2px 0;
+  font-weight: 700;
+  color: @darkLight;
+  &:focus, &:active {
+    border-bottom: solid 3px @darkLight;
+    outline: none;
+  }
+
+}
+
+

@@ -1,0 +1,41 @@
+@import "../../utils/colors";
+
+.navbar{
+  background-color: @darkLight;
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &-wrap {
+    width: 1080px;
+    display: flex;
+    align-items: center;
+
+    .logo-name {
+      font-size: 20px;
+      font-weight: 500;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+    .right {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      .username{
+        font-size: 14px;
+        margin-right: 5px;
+      }
+      .login {
+        margin-right: 15px;
+        font-size: 14px;
+        cursor: pointer;
+      }
+      .regist {
+        font-size: 14px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
