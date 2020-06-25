@@ -1,12 +1,27 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './navbar.css'
 import logo from '../../assets/img/navbar-logo.svg'
 import avatar from '../../assets/img/navbar-avatar.svg'
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {logout} from "../../reducers/userReducer";
 
 const Navbar = (props) => {
 
     const isAuth = useSelector(state => state.userReducer.isAuth)
+    const [dropListVisible, setDropListVisible] = useState("none")
+    const dispatch = useDispatch()
+
+    function avatarClick() {
+        if(dropListVisible=="none")
+            setDropListVisible("flex")
+        else
+            setDropListVisible("none")
+    }
+
+    function logOutClick() {
+        dispatch(logout())
+        props.history.push("/auth/login")
+    }
 
     return (
         <div className="navbar">
@@ -15,9 +30,13 @@ const Navbar = (props) => {
                 <div className="logo-name" onClick={()=>props.history.push("/")}>DropDisk</div>
 
                 {isAuth ?
-                    <div className="right">
+                    <div className="right" onClick={()=>avatarClick()}>
                         <div className="username">Ulbi timur</div>
                         <img src={avatar} alt=""/>
+                        <div className="droplist" style={{display: dropListVisible}}>
+                            <div className="droplist-item" onClick={()=>props.history.push("/profile")}>Профиль</div>
+                            <div className="droplist-item" onClick={()=>logOutClick()}>Выход</div>
+                        </div>
                     </div>
                     :
                     <div className="right">

@@ -10,3 +10,14 @@ export const login = (username, password, rememberMe, history) => {
         history.push("/")
     }
 }
+
+
+export const auth = () => {
+    return async (dispatch) => {
+        const response = await axios.get(`${API_URL}/auth`, {headers:{Authorization: `Bearer ${localStorage.getItem("token")}`}})
+        dispatch(userLogin(response.data.user))
+    }
+}
+
+
+

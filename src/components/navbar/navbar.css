@@ -21,6 +21,25 @@
   margin-left: auto;
   display: flex;
   align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+.navbar-wrap .right .droplist {
+  background: #F6F5F3;
+  cursor: auto;
+  display: none;
+  position: absolute;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  top: 50px;
+  padding: 10px;
+}
+.navbar-wrap .right .droplist-item {
+  color: #566885;
+  font-weight: 500;
+  margin: 5px;
+  cursor: pointer;
 }
 .navbar-wrap .right .username {
   font-size: 14px;
