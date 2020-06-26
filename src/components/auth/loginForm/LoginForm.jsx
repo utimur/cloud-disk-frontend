@@ -32,7 +32,7 @@ const LoginForm = (props) => {
                 <Checkbox checked={checked} setChecked={setChecked}/>
                 <Button click={loginClick} text="Войти"/>
             </div>
-            <div className="forget">Забыли пароль?</div>
+            <div className="forget" onClick={()=>props.history.push("/auth/forget")}>Забыли пароль?</div>
         </div>
             :
             <Redirect to="/"/>

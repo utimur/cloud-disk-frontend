@@ -5,6 +5,7 @@ import {Route} from "react-router-dom";
 import LoginForm from "./loginForm/LoginForm";
 import RegistrationForm from "./RegistrationForm/RegistrationForm";
 import {useSelector} from "react-redux";
+import ForgetForm from "./forgetForm/forgetForm";
 
 const Auth = () => {
     const isAuth = useSelector(state => state.userReducer.isAuth)
@@ -19,6 +20,7 @@ const Auth = () => {
                 <div className="auth-form">
                     {!isAuth && <Route path="/auth/login" component={LoginForm}/>}
                     {!isAuth && <Route path="/auth/registration" component={RegistrationForm}/>}
+                    {!isAuth && <Route path="/auth/forget" component={ForgetForm}/>}
                 </div>
             </div>
         </div>
