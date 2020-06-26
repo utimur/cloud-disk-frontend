@@ -7,6 +7,7 @@ export const login = (username, password, rememberMe, history) => {
         const response = await axios.post(`${API_URL}/auth/login`, {username, password})
         dispatch(userLogin(response.data.user))
         rememberMe == true ? localStorage.setItem("token", response.data.token) : localStorage.removeItem("token")
+        rememberMe == true ? localStorage.setItem("rememberMe", "true") : localStorage.removeItem("rememberMe")
         history.push("/")
     }
 }
@@ -16,6 +17,9 @@ export const auth = () => {
     return async (dispatch) => {
         const response = await axios.get(`${API_URL}/auth`, {headers:{Authorization: `Bearer ${localStorage.getItem("token")}`}})
         dispatch(userLogin(response.data.user))
+        if(localStorage.getItem("rememberMe") == "true") {
+            localStorage.setItem("token", response.data.token)
+        }
     }
 }
 

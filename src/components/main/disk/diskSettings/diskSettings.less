@@ -1,0 +1,78 @@
+@import "../../../../utils/colors";
+
+.settings {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  &-create {
+    margin-left: 15px;
+    grid-column-start: 2;
+    border: solid 1px @darkLight;
+    border-radius: 35px;
+    padding: 5px 15px;
+    &-btn{
+      color: @light;
+      outline: none;
+      border: none;
+      background: none;
+      &:focus, &:active {
+        outline: none;
+      }
+    }
+  }
+
+  &-order-btn {
+    margin-left: auto;
+    outline: none;
+    border: none;
+    background: url("../../../../assets/img/button-sort-order.svg") no-repeat center center;
+    background-size: contain;
+    height: 12px;
+    width: 32px;
+  }
+
+  &-sort-list {
+    margin: 0 20px 0 10px;
+    color: @darkLight;
+    border: none;
+    background: none;
+    outline: none;
+    &:active, &:focus {
+      outline: none;
+    }
+    option {
+      border: none;
+      background: @dark;
+      color: @darkLight;
+      outline: none;
+    }
+  }
+
+  &-big-plate-btn {
+    outline: none;
+    border: none;
+    background: url("../../../../assets/img/button-big-plate.svg") no-repeat center center;
+    background-size: contain;
+    height: 13px;
+    width: 13px;
+  }
+
+  &-small-plate-btn {
+    margin: 0 10px;
+    outline: none;
+    border: none;
+    background: url("../../../../assets/img/button-small-plate.svg") no-repeat center center;
+    background-size: contain;
+    height: 13px;
+    width: 13px;
+  }
+
+  &-list-btn {
+    outline: none;
+    border: none;
+    background: url("../../../../assets/img/button-list-active.svg") no-repeat center center;
+    background-size: contain;
+    height: 13px;
+    width: 13px;
+  }
+}

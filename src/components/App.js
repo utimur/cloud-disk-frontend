@@ -7,6 +7,7 @@ import Auth from "./auth/Auth";
 import Main from "./main/Main";
 import {useDispatch, useSelector} from "react-redux";
 import {auth} from "../actions/user";
+import Profile from "./profile/Profile";
 
 const App = () => {
     const isAuth = useSelector(state => state.userReducer.isAuth)
@@ -23,6 +24,7 @@ const App = () => {
             <div className="wrap">
                 {!isAuth && <Route path="/auth" component={Auth}/>}
                 {isAuth && <Route exact path="/" component={Main}/>}
+                {isAuth && <Route exact path="/profile" component={Profile}/>}
             </div>
         </div>
     </BrowserRouter>

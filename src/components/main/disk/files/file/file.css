@@ -1,0 +1,75 @@
+.file {
+  margin-top: 10px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr 1fr 1fr 1fr;
+  color: #F6F5F3;
+  align-items: center;
+  border-bottom: 1px solid #495974;
+  padding-bottom: 4px;
+}
+.file:hover {
+  transform: scale(1.01);
+}
+.file:hover .file-favor-btn {
+  display: flex;
+  grid-column-start: 5;
+  justify-self: center;
+}
+.file:hover .file-basket-btn {
+  display: flex;
+  grid-column-start: 6;
+  justify-self: center;
+}
+.file:hover .file-date {
+  grid-column-start: 3;
+}
+.file:hover .file-size {
+  grid-column-start: 4;
+}
+.file .file-img {
+  margin-left: 30px;
+}
+.file-name {
+  grid-column-start: 2;
+}
+.file-date {
+  justify-self: center;
+  font-weight: 300;
+  grid-column-start: 5;
+}
+.file-size {
+  justify-self: center;
+  font-weight: 300;
+  grid-column-start: 6;
+}
+.file-favor-btn,
+.file-basket-btn {
+  border: 1px solid #566885;
+  height: fit-content;
+  width: fit-content;
+  padding: 5px 20px;
+  display: none;
+  border-radius: 18px;
+}
+.file-favor-btn button,
+.file-basket-btn button {
+  border: none;
+  outline: none;
+  background-size: contain;
+}
+.file-favor-btn button:hover,
+.file-basket-btn button:hover {
+  outline: none;
+}
+.file-favor-btn button {
+  height: 25px;
+  width: 25px;
+  background: url("../../../../../assets/img/button-favor.svg") no-repeat center center;
+}
+.file-basket-btn button {
+  height: 25px;
+  width: 25px;
+  background: url("../../../../../assets/img/button-basket.svg") no-repeat center center;
+}
+/*# sourceMappingURL=file.css.map */

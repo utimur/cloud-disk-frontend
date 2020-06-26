@@ -1,0 +1,27 @@
+@import "../../../../utils/colors";
+
+.files{
+  margin-top: 15px;
+  margin-left: 15px;
+  .files-header {
+    display: grid;
+    grid-template-columns:  1fr 3fr 1fr 1fr 1fr 1fr;
+    color: @darkLight;
+    border-bottom: 1px solid #495974;
+    padding-bottom: 2px;
+    &-name{
+      grid-column-start: 2;
+    }
+
+    &-date{
+    justify-self: center;
+      grid-column-start: 5;
+    }
+
+    &-size{
+      justify-self: center;
+      grid-column-start: 6;
+    }
+  }
+
+}

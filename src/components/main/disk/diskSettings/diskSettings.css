@@ -1,0 +1,74 @@
+.settings {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+}
+.settings-create {
+  margin-left: 15px;
+  grid-column-start: 2;
+  border: solid 1px #566885;
+  border-radius: 35px;
+  padding: 5px 15px;
+}
+.settings-create-btn {
+  color: #F6F5F3;
+  outline: none;
+  border: none;
+  background: none;
+}
+.settings-create-btn:focus,
+.settings-create-btn:active {
+  outline: none;
+}
+.settings-order-btn {
+  margin-left: auto;
+  outline: none;
+  border: none;
+  background: url("../../../../assets/img/button-sort-order.svg") no-repeat center center;
+  background-size: contain;
+  height: 12px;
+  width: 32px;
+}
+.settings-sort-list {
+  margin: 0 20px 0 10px;
+  color: #566885;
+  border: none;
+  background: none;
+  outline: none;
+}
+.settings-sort-list:active,
+.settings-sort-list:focus {
+  outline: none;
+}
+.settings-sort-list option {
+  border: none;
+  background: #222A3F;
+  color: #566885;
+  outline: none;
+}
+.settings-big-plate-btn {
+  outline: none;
+  border: none;
+  background: url("../../../../assets/img/button-big-plate.svg") no-repeat center center;
+  background-size: contain;
+  height: 13px;
+  width: 13px;
+}
+.settings-small-plate-btn {
+  margin: 0 10px;
+  outline: none;
+  border: none;
+  background: url("../../../../assets/img/button-small-plate.svg") no-repeat center center;
+  background-size: contain;
+  height: 13px;
+  width: 13px;
+}
+.settings-list-btn {
+  outline: none;
+  border: none;
+  background: url("../../../../assets/img/button-list-active.svg") no-repeat center center;
+  background-size: contain;
+  height: 13px;
+  width: 13px;
+}
+/*# sourceMappingURL=diskSettings.css.map */

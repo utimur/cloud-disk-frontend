@@ -1,0 +1,48 @@
+@import "../../../utils/colors";
+
+.disk{
+ padding: 10px 0 0 10px;
+  width: 100%;
+  &-header{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    &-name{
+      font-weight: 500;
+      font-size: 22px;
+      grid-column-start: 4;
+    }
+    &-back {
+      width: fit-content;
+      margin-left: 15px;
+      border: solid 1px @darkLight;
+      border-radius: 35px;
+      padding: 5px 15px;
+      &:hover{
+        animation-name: border-anim;
+        animation-duration: 1s;
+      }
+      &-btn{
+        outline: none;
+        border: none;
+        background: url("../../../assets/img/button-back2.svg") no-repeat center center;
+        background-size: contain;
+        height: 14px;
+        width: 23px;
+        &:focus, &:active {
+          outline: none;
+        }
+      }
+
+    }
+  }
+}
+
+@keyframes border-anim {
+  0% {
+    transform: rotate(0grad);
+  }
+
+  100% {
+    transform: rotate(395grad);
+  }
+}

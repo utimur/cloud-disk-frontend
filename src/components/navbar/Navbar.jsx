@@ -8,8 +8,10 @@ import {logout} from "../../reducers/userReducer";
 const Navbar = (props) => {
 
     const isAuth = useSelector(state => state.userReducer.isAuth)
+    const currentUser = useSelector(state => state.userReducer.currentUser)
     const [dropListVisible, setDropListVisible] = useState("none")
     const dispatch = useDispatch()
+
 
     function avatarClick() {
         if(dropListVisible=="none")
@@ -31,7 +33,7 @@ const Navbar = (props) => {
 
                 {isAuth ?
                     <div className="right" onClick={()=>avatarClick()}>
-                        <div className="username">Ulbi timur</div>
+                        <div className="username">{currentUser.username}</div>
                         <img src={avatar} alt=""/>
                         <div className="droplist" style={{display: dropListVisible}}>
                             <div className="droplist-item" onClick={()=>props.history.push("/profile")}>Профиль</div>
@@ -40,8 +42,8 @@ const Navbar = (props) => {
                     </div>
                     :
                     <div className="right">
-                        <div className="login" onClick={()=>props.history.push("/auth/login")}>Войти</div>
-                        <div className="regist" onClick={()=>props.history.push("/auth/registration")}>Регистрация</div>
+                        <div className="navbar-login" onClick={()=>props.history.push("/auth/login")}>Войти</div>
+                        <div className="navbar-regist" onClick={()=>props.history.push("/auth/registration")}>Регистрация</div>
                     </div>
                 }
             </div>

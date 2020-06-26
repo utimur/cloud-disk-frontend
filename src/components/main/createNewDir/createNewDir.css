@@ -1,0 +1,54 @@
+.create-dir {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  border-radius: 30px;
+  position: absolute;
+  background-color: #F6F5F3;
+  border: 4px solid #566885;
+  right: 0;
+  left: 0;
+  top: 150px;
+  z-index: 999;
+  padding: 20px 30px;
+}
+.create-dir .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.create-dir .header-name {
+  color: #566885;
+  font-weight: 700;
+}
+.create-dir .header-close {
+  border: 2px solid #566885;
+  padding: 0 12px;
+  border-radius: 12px;
+}
+.create-dir .header-close-btn {
+  background: url("../../../assets/img/button-close.svg") no-repeat center center;
+  border: none;
+  outline: none;
+  height: 15px;
+  width: 15px;
+}
+.create-dir .header-close-btn:hover {
+  outline: none;
+}
+.create-dir input {
+  margin: 20px 0;
+}
+.create-dir .create-btn {
+  width: fit-content;
+  align-self: flex-end;
+  outline: none;
+  border: none;
+  background: #566885;
+  color: #F6F5F3;
+  padding: 5px 15px;
+  border-radius: 15px;
+  font-weight: 500;
+}
+/*# sourceMappingURL=createNewDir.css.map */

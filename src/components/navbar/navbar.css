@@ -34,6 +34,7 @@
   border-radius: 10px;
   top: 50px;
   padding: 10px;
+  z-index: 999;
 }
 .navbar-wrap .right .droplist-item {
   color: #566885;
@@ -45,12 +46,12 @@
   font-size: 14px;
   margin-right: 5px;
 }
-.navbar-wrap .right .login {
+.navbar-wrap .right .navbar-login {
   margin-right: 15px;
   font-size: 14px;
   cursor: pointer;
 }
-.navbar-wrap .right .regist {
+.navbar-wrap .right .navbar-regist {
   font-size: 14px;
   cursor: pointer;
 }

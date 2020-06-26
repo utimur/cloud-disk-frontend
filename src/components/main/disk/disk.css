@@ -1,0 +1,45 @@
+.disk {
+  padding: 10px 0 0 10px;
+  width: 100%;
+}
+.disk-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+.disk-header-name {
+  font-weight: 500;
+  font-size: 22px;
+  grid-column-start: 4;
+}
+.disk-header-back {
+  width: fit-content;
+  margin-left: 15px;
+  border: solid 1px #566885;
+  border-radius: 35px;
+  padding: 5px 15px;
+}
+.disk-header-back:hover {
+  animation-name: border-anim;
+  animation-duration: 1s;
+}
+.disk-header-back-btn {
+  outline: none;
+  border: none;
+  background: url("../../../assets/img/button-back2.svg") no-repeat center center;
+  background-size: contain;
+  height: 14px;
+  width: 23px;
+}
+.disk-header-back-btn:focus,
+.disk-header-back-btn:active {
+  outline: none;
+}
+@keyframes border-anim {
+  0% {
+    transform: rotate(0grad);
+  }
+  100% {
+    transform: rotate(395grad);
+  }
+}
+/*# sourceMappingURL=disk.css.map */

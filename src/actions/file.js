@@ -1,4 +1,6 @@
 import axios from "axios";
+import {API_URL} from "../config";
+import {createNewDir, setFiles} from "../reducers/fileReducer";
 
 async function big_file_upload(file, parentId) {
     let formData = new FormData();
@@ -18,3 +20,43 @@ async function big_file_upload(file, parentId) {
         }});
     console.log(response)
 }
+
+
+
+export const getFiles = (parentId) => {
+   return async (dispatch) => {
+       const response = await axios.get(`${API_URL}/files`, {headers:{Authorization: `Bearer ${localStorage.getItem("token")}`}})
+       dispatch(setFiles(response.data))
+   }
+}
+
+export const createDir = (parentId, dirName) => {
+    return async (dispatch) => {
+        try {
+            const response = await axios.post(`${API_URL}/files/dir`,{
+                name:dirName,
+                type:"dir",
+                parentId
+            }, {headers:{Authorization: `Bearer ${localStorage.getItem("token")}`}})
+            dispatch(createNewDir(response.data))
+        } catch (e) {
+            alert(e)
+        }
+
+    }
+}
+
+export const sizeFormater = (size) => {
+    if(size > 1024*1024*1024) {
+        return Math.ceil(size/(1024*1024*1024))+"Gb"
+    }
+    if(size > 1024*1024) {
+        return Math.ceil(size/(1024*1024))+"Mb"
+    }
+    if(size > 1024) {
+        return Math.ceil(size/(1024))+"Kb"
+    }
+    return size+"B"
+}
+
+

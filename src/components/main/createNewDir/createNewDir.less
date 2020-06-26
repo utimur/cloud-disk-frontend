@@ -1,0 +1,58 @@
+@import "../../../utils/colors";
+
+.create-dir {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  border-radius: 30px;
+  position: absolute;
+  background-color: @light;
+  border: 4px solid @darkLight;
+  right: 0;
+  left: 0;
+  top: 150px;
+  z-index: 999;
+  padding: 20px 30px;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &-name{
+      color: @darkLight;
+      font-weight: 700;
+    }
+    &-close {
+      border: 2px solid @darkLight;
+      padding: 0 12px;
+      border-radius: 12px;
+      &-btn {
+      background: url("../../../assets/img/button-close.svg") no-repeat center center;
+      border: none;
+      outline: none;
+      height: 15px;
+      width: 15px;
+      &:hover {
+        outline: none;
+      }
+    }
+    }
+  }
+
+  input{
+    margin: 20px 0;
+  }
+  .create-btn {
+    width: fit-content;
+    align-self: flex-end;
+    outline: none;
+    border: none;
+    background: @darkLight;
+    color: @light;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-weight: 500;
+  }
+
+}

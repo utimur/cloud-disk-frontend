@@ -2,7 +2,9 @@ const LOGIN = "LOGIN"
 const LOGOUT = "LOGOUT"
 
 const defaultState = {
-    currentUser: {},
+    currentUser: {
+        username:"",
+    },
     isAuth: false,
 }
 
