@@ -6,6 +6,7 @@ import CreateNewDir from "./createNewDir/CreateNewDir";
 import {useSelector} from "react-redux";
 import {Redirect} from "react-router-dom";
 import {logout} from "../../reducers/userReducer";
+import Uploader from "./uploader/Uploader";
 
 const Main = (props) => {
 
@@ -55,6 +56,7 @@ const Main = (props) => {
             <div className="delimeter" onmouse onMouseUp={(e)=>mouseUp(e)} onMouseDown={(e)=>mouseDown(e)}/>
             <Disk/>
             <CreateNewDir/>
+            <Uploader/>
         </div>
     );
 };

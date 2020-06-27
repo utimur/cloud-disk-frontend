@@ -1,25 +1,35 @@
 import axios from "axios";
 import {API_URL} from "../config";
-import {addNewFile, setFiles} from "../reducers/fileReducer";
+import {
+    addNewFile,
+    addUploadingFile,
+    changeUploadingProgress,
+    setFiles,
+    setUploaderDisplay
+} from "../reducers/fileReducer";
 
 export const uploadFile = (file, parentId) => {
     const authorization = localStorage.getItem("rememberMe") === "true" ? localStorage.getItem("token") : sessionStorage.getItem("token")
     return async (dispatch) => {
-        let formData = new FormData();
+        const uploadingFile = {name:file.name,parentId,progress:0}
+        dispatch(addUploadingFile(uploadingFile))
 
+        let formData = new FormData();
         formData.append("file", file);
         formData.append("filename", file.name);
         if (parentId != null) {
             formData.append("parent_id", parentId);
         }
-
+        dispatch(setUploaderDisplay("flex"))
         const response = await axios.post("http://localhost:8080/files/upload", formData, {
             headers: {Authorization: `Bearer ${authorization}`},
             onUploadProgress: (progressEvent) => {
                 const totalLength = progressEvent.lengthComputable ? progressEvent.total : progressEvent.target.getResponseHeader('content-length') || progressEvent.target.getResponseHeader('x-decompressed-content-length');
                 console.log("onUploadProgress", totalLength);
                 if (totalLength !== null) {
-                    console.log(Math.round((progressEvent.loaded * 100) / totalLength));
+                    uploadingFile.progress = (Math.round((progressEvent.loaded * 100) / totalLength))
+                    console.log(uploadingFile)
+                    dispatch(changeUploadingProgress(uploadingFile))
                 }
             }
         });

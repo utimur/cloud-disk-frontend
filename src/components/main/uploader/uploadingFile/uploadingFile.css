@@ -1,0 +1,10 @@
+.uploading-file {
+  border-bottom: 2px solid #566885;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.uploading-file-name {
+  font-weight: 500;
+}
+/*# sourceMappingURL=uploadingFile.css.map */

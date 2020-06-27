@@ -1,0 +1,41 @@
+@import "../../../utils/colors";
+
+.uploader {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 300px;
+  background-color: @light;
+  border-top-left-radius: 16px;
+  padding: 15px;
+  color: @darkLight;
+
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    font-size: 18px;
+
+    &-close {
+      border: 2px solid @darkLight;
+      padding: 0 12px;
+      border-radius: 12px;
+
+      &-btn {
+        background: url("../../../assets/img/button-close.svg") no-repeat center center;
+        border: none;
+        outline: none;
+        height: 15px;
+        width: 15px;
+
+        &:hover {
+          outline: none;
+        }
+      }
+
+    }
+  }
+}

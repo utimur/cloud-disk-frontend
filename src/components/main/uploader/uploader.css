@@ -1,0 +1,35 @@
+.uploader {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 300px;
+  background-color: #F6F5F3;
+  border-top-left-radius: 16px;
+  padding: 15px;
+  color: #566885;
+}
+.uploader-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+  font-size: 18px;
+}
+.uploader-header-close {
+  border: 2px solid #566885;
+  padding: 0 12px;
+  border-radius: 12px;
+}
+.uploader-header-close-btn {
+  background: url("../../../assets/img/button-close.svg") no-repeat center center;
+  border: none;
+  outline: none;
+  height: 15px;
+  width: 15px;
+}
+.uploader-header-close-btn:hover {
+  outline: none;
+}
+/*# sourceMappingURL=uploader.css.map */
