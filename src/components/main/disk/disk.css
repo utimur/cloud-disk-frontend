@@ -42,4 +42,13 @@
     transform: rotate(395grad);
   }
 }
+.drop-area {
+  width: 100%;
+  height: calc(100vh - 100px);
+  border: dashed 3px #566885;
+  margin: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 /*# sourceMappingURL=disk.css.map */

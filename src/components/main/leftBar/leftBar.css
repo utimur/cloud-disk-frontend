@@ -1,8 +1,9 @@
 .leftbar {
-  width: 150px;
+  width: 170px;
   height: calc(100vh - 50px);
-  border-right: 2px solid #566885;
   padding-right: 10px;
+  display: flex;
+  flex-direction: column;
 }
 .leftbar .favourites::-webkit-scrollbar {
   /* chrome based */
@@ -19,6 +20,8 @@
   -ms-overflow-style: none;
   /* IE 10+ */
   scrollbar-width: none;
+  word-break: break-word;
+  white-space: pre;
 }
 .leftbar .favourites-header {
   font-size: 22px;
@@ -26,12 +29,15 @@
 }
 .leftbar .memory {
   margin-top: 20px;
+  display: flex;
+  flex-direction: column;
 }
 .leftbar .memory .fullbar {
-  width: 100%;
+  width: 150px;
   height: 20px;
   background-color: #F6F5F3;
   border-radius: 15px;
+  align-self: flex-end;
 }
 .leftbar .memory .fullbar .freebar {
   height: 20px;
@@ -42,5 +48,22 @@
   margin-top: 3px;
   font-size: 12px;
   text-align: end;
+}
+.leftbar .upload {
+  border: 2px solid #566885;
+  border-radius: 25px;
+  margin-top: 15px;
+  padding: 5px 10px;
+  width: fit-content;
+  align-self: flex-end;
+  text-align: end;
+  display: flex;
+  justify-content: center;
+}
+.leftbar .upload input {
+  display: none;
+}
+.leftbar .upload label {
+  cursor: pointer;
 }
 /*# sourceMappingURL=leftBar.css.map */

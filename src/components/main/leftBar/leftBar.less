@@ -1,10 +1,11 @@
 @import "../../../utils/colors";
 
 .leftbar{
-  width: 150px;
+  width: 170px;
   height: calc(100vh - 50px);
-  border-right: 2px solid @darkLight;
   padding-right: 10px;
+  display: flex;
+  flex-direction: column;
   .favourites::-webkit-scrollbar { /* chrome based */
     width: 0px;  /* ширина scrollbar'a */
     background: transparent;  /* опционально */
@@ -16,7 +17,8 @@
     overflow-y: scroll;
     -ms-overflow-style: none;  /* IE 10+ */
     scrollbar-width: none;
-
+    word-break: break-word;
+    white-space: pre;
     &-header {
       font-size: 22px;
       font-weight: 500;
@@ -25,11 +27,14 @@
 
   .memory {
     margin-top: 20px;
+    display: flex;
+    flex-direction: column;
     .fullbar{
-      width: 100%;
+      width: 150px;
       height: 20px;
       background-color: @light;
       border-radius: 15px;
+      align-self: flex-end;
       .freebar{
         height: 20px;
         background-color: @darkLight;
@@ -40,6 +45,24 @@
       margin-top: 3px;
       font-size: 12px;
       text-align: end;
+    }
+  }
+
+  .upload {
+    border: 2px solid @darkLight;
+    border-radius: 25px;
+    margin-top: 15px;
+    padding: 5px 10px;
+    width: fit-content;
+    align-self: flex-end;
+    text-align: end;
+    display: flex;
+    justify-content: center;
+    input {
+      display: none;
+    }
+    label {
+      cursor: pointer;
     }
   }
 }

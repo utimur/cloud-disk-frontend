@@ -1,5 +1,5 @@
 const SET_FILES = "SET_FILES"
-const CREATE_NEW_DIR = "CREATE_NEW_DIR"
+const ADD_NEW_FILE = "ADD_NEW_FILE"
 const SET_CREATE_DIR_VISIBLE = "SET_CREATE_DIR_VISIBLE"
 
 const defaultState = {
@@ -15,7 +15,7 @@ export default function fileReducer(state = defaultState, action) {
                 ...state,
                 files: action.payload
             }
-        case CREATE_NEW_DIR:
+        case ADD_NEW_FILE:
             return {
                 ...state,
                 files: [...state.files, action.payload]
@@ -32,5 +32,5 @@ export default function fileReducer(state = defaultState, action) {
 }
 
 export const setFiles = (files) => ({type:SET_FILES, payload:files})
-export const createNewDir = (dir) => ({type:CREATE_NEW_DIR, payload:dir})
+export const addNewFile = (dir) => ({type:ADD_NEW_FILE, payload:dir})
 export const setCreateDirVisible = (display) => ({type:SET_CREATE_DIR_VISIBLE, payload:display})

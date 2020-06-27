@@ -1,6 +1,11 @@
 .main {
   display: flex;
-  position: relative;
   width: 100%;
+}
+.main .delimeter {
+  width: 5px;
+  background-color: #566885;
+  cursor: e-resize;
+  left: 20px;
 }
 /*# sourceMappingURL=main.css.map */
