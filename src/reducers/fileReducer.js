@@ -4,10 +4,12 @@ const SET_CREATE_DIR_VISIBLE = "SET_CREATE_DIR_VISIBLE"
 const SET_UPLOADER_DiSPLAY = "SET_UPLOADER_DiSPLAY"
 const ADD_UPLOADING_FILE = "ADD_UPLOADING_FILE"
 const CHANGE_UPLOADING_PROGRESS = "CHANGE_UPLOADING_PROGRESS"
+const SET_PARENT_ID = "SET_PARENT_ID"
 
 const defaultState = {
     files: [],
     parentId: null,
+    backId: null,
     createDirVisible:"none",
     uploaderDisplay: "none",
     uploadingFiles: []
@@ -18,7 +20,8 @@ export default function fileReducer(state = defaultState, action) {
         case SET_FILES:
             return {
                 ...state,
-                files: action.payload
+                files: action.payload.files,
+                backId: action.payload.backId
             }
         case ADD_NEW_FILE:
             return {
@@ -45,6 +48,11 @@ export default function fileReducer(state = defaultState, action) {
                 ...state,
                 uploadingFiles:[...state.uploadingFiles.map(file => file.name == action.payload.name ? {...file, progress:action.payload.progress} : {...file})]
             }
+        case SET_PARENT_ID:
+            return {
+                ...state,
+                parentId: action.payload
+            }
         default:
             return state
 
@@ -57,3 +65,4 @@ export const setCreateDirVisible = (display) => ({type:SET_CREATE_DIR_VISIBLE, p
 export const setUploaderDisplay = (display) => ({type:SET_UPLOADER_DiSPLAY, payload:display})
 export const addUploadingFile = (file) => ({type:ADD_UPLOADING_FILE, payload:file})
 export const changeUploadingProgress = (file) => ({type:CHANGE_UPLOADING_PROGRESS, payload:file})
+export const setParentId = (parentId) => ({type:SET_PARENT_ID, payload:parentId})

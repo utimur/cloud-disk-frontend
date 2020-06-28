@@ -8,11 +8,10 @@ import {getFiles, uploadFile} from "../../../actions/file";
 const Disk = () => {
     const dispatch = useDispatch()
     const parentId = useSelector(state => state.fileReducer.parentId)
+    const backId = useSelector(state => state.fileReducer.backId)
     const [dragEnter, setDragEnter] = useState(false)
 
-    useEffect(()=>{
-        dispatch(getFiles(parentId))
-    }, [parentId])
+
 
     function dragEnterFunc(e) {
         e.preventDefault()
@@ -43,11 +42,15 @@ const Disk = () => {
     }
 
 
+    function backButtonClick() {
+        dispatch(getFiles(backId))
+    }
+
     return ( dragEnter == false ?
         <div onDragEnter={(e)=>dragEnterFunc(e)} onDragOver={(e)=>dragOver(e)} onDragLeave={dragLeave} className="disk">
             <div className="disk-header">
                 <div className="disk-header-back">
-                    <button className="disk-header-back-btn"/>
+                    <button className="disk-header-back-btn" onClick={() => backButtonClick()}/>
                 </div>
                 <div className="disk-header-name">Videos</div>
             </div>

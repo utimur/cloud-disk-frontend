@@ -17,10 +17,7 @@
       border: solid 1px @darkLight;
       border-radius: 35px;
       padding: 5px 15px;
-      &:hover{
-        animation-name: border-anim;
-        animation-duration: 1s;
-      }
+
       &-btn{
         outline: none;
         border: none;
@@ -36,17 +33,6 @@
     }
   }
 }
-
-@keyframes border-anim {
-  0% {
-    transform: rotate(0grad);
-  }
-
-  100% {
-    transform: rotate(395grad);
-  }
-}
-
 .drop-area {
   width: 100%;
   height: calc(100vh - 100px);

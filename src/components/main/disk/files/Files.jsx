@@ -1,11 +1,19 @@
 import React, {useEffect} from 'react';
 import "./files.css"
 import File from "./file/File";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {getFiles} from "../../../../actions/file";
 
 const Files = () => {
 
     const files = useSelector(state => state.fileReducer.files)
+    const parentId = useSelector(state => state.fileReducer.parentId)
+    const dispatch = useDispatch()
+
+
+    useEffect(()=>{
+        dispatch(getFiles(parentId))
+    }, [])
 
     return (
         <div className="files">

@@ -4,7 +4,7 @@ import {
     addNewFile,
     addUploadingFile,
     changeUploadingProgress,
-    setFiles,
+    setFiles, setParentId,
     setUploaderDisplay
 } from "../reducers/fileReducer";
 
@@ -41,8 +41,10 @@ export const uploadFile = (file, parentId) => {
 export const getFiles = (parentId) => {
     const authorization = localStorage.getItem("rememberMe") === "true" ? localStorage.getItem("token") : sessionStorage.getItem("token")
     return async (dispatch) => {
-        const response = await axios.get(`${API_URL}/files`, {headers:{Authorization: `Bearer ${authorization}`}})
+        const response = await axios.get(`${API_URL}/files?${parentId != null ? `parent_id=${parentId}` : ""}`, {headers:{Authorization: `Bearer ${authorization}`}})
         dispatch(setFiles(response.data))
+        dispatch(setParentId(parentId))
+        console.log(response.data)
     }
 }
 
@@ -57,6 +59,7 @@ export const createDir = (parentId, dirName) => {
                 parentId
             }, {headers:{Authorization: `Bearer ${authorization}`}})
             dispatch(addNewFile(response.data))
+            console.log(response.data)
         } catch (e) {
             alert(e)
         }
