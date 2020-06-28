@@ -1,12 +1,29 @@
 @import "../../../../utils/colors";
 
 .uploading-file {
-  border-bottom: 2px solid @darkLight;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   margin-top: 10px;
+  padding-bottom: 3px;
   &-name {
     font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    word-break: break-word;
+  }
+
+  &-progress {
+    color: @light;
+    text-align: center;
+    width: 100%;
+    background-color: @dark;
+    margin-top: 2px;
+    border-radius: 12px;
+    &-full {
+      width: 50%;
+      background-color: @darkLight;
+      border-radius: 12px;
+    }
   }
 
 }
