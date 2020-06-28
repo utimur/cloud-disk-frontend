@@ -4,21 +4,25 @@
 }
 .disk-header {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: flex-start;
 }
 .disk-header-name {
   font-weight: 500;
   font-size: 22px;
-  grid-column-start: 4;
+  grid-column-start: 2;
+  justify-self: center;
 }
-.disk-header-back {
+.disk-header-back,
+.disk-header-download {
   width: fit-content;
   margin-left: 15px;
   border: solid 1px #566885;
   border-radius: 35px;
   padding: 5px 15px;
 }
-.disk-header-back-btn {
+.disk-header-back-btn,
+.disk-header-download-btn {
   outline: none;
   border: none;
   background: url("../../../assets/img/button-back2.svg") no-repeat center center;
@@ -27,7 +31,9 @@
   width: 23px;
 }
 .disk-header-back-btn:focus,
-.disk-header-back-btn:active {
+.disk-header-download-btn:focus,
+.disk-header-back-btn:active,
+.disk-header-download-btn:active {
   outline: none;
 }
 .drop-area {

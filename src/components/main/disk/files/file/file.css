@@ -11,6 +11,11 @@
 .file:hover {
   transform: scale(1.01);
 }
+.file:hover .file-download-btn {
+  display: flex;
+  grid-column-start: 4;
+  justify-self: center;
+}
 .file:hover .file-favor-btn {
   display: flex;
   grid-column-start: 5;
@@ -22,10 +27,10 @@
   justify-self: center;
 }
 .file:hover .file-date {
-  grid-column-start: 3;
+  display: none;
 }
 .file:hover .file-size {
-  grid-column-start: 4;
+  display: none;
 }
 .file .file-img {
   margin-left: 30px;
@@ -44,7 +49,8 @@
   grid-column-start: 6;
 }
 .file-favor-btn,
-.file-basket-btn {
+.file-basket-btn,
+.file-download-btn {
   border: 1px solid #566885;
   height: fit-content;
   width: fit-content;
@@ -53,19 +59,26 @@
   border-radius: 18px;
 }
 .file-favor-btn button,
-.file-basket-btn button {
+.file-basket-btn button,
+.file-download-btn button {
   border: none;
   outline: none;
   background-size: contain;
 }
 .file-favor-btn button:hover,
-.file-basket-btn button:hover {
+.file-basket-btn button:hover,
+.file-download-btn button:hover {
   outline: none;
 }
 .file-favor-btn button {
   height: 25px;
   width: 25px;
   background: url("../../../../../assets/img/button-favor.svg") no-repeat center center;
+}
+.file-download-btn button {
+  height: 25px;
+  width: 25px;
+  background: url("../../../../../assets/img/button-download.svg") no-repeat center center;
 }
 .file-basket-btn button {
   height: 25px;
