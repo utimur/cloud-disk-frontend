@@ -29,7 +29,7 @@ const LoginForm = (props) => {
             <Input value={username} setValue={setUsername} type="text" placeholder="Введите имя пользователя..."/>
             <Input value={password} setValue={setPassword} type="password" placeholder="Введите пароль..."/>
             <div className="login-btns">
-                <Checkbox checked={checked} setChecked={setChecked}/>
+                <Checkbox checked={checked} setChecked={setChecked} text = "Запомнить меня?"/>
                 <Button click={loginClick} text="Войти"/>
             </div>
             <div className="forget" onClick={()=>props.history.push("/auth/forget")}>Забыли пароль?</div>
