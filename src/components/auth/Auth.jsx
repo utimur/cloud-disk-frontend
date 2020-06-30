@@ -6,6 +6,7 @@ import LoginForm from "./loginForm/LoginForm";
 import RegistrationForm from "./RegistrationForm/RegistrationForm";
 import {useSelector} from "react-redux";
 import ForgetForm from "./forgetForm/forgetForm";
+import ActivationForm from "./activationForm/ActivationForm";
 
 const Auth = () => {
     const isAuth = useSelector(state => state.userReducer.isAuth)
@@ -21,6 +22,7 @@ const Auth = () => {
                     {!isAuth && <Route path="/auth/login" component={LoginForm}/>}
                     {!isAuth && <Route path="/auth/registration" component={RegistrationForm}/>}
                     {!isAuth && <Route path="/auth/forget" component={ForgetForm}/>}
+                    {!isAuth && <Route path="/auth/activation/:token" component={ActivationForm}/>}
                 </div>
             </div>
         </div>
