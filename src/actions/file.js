@@ -45,10 +45,26 @@ export const getFiles = (parentId) => {
         const response = await axios.get(`${API_URL}/files${parentId != null ? `?parent_id=${parentId}` : ""}`, {headers:{Authorization: `Bearer ${authorization}`}})
         dispatch(setFiles(response.data))
         dispatch(setParentId(parentId))
-        console.log(response.data)
     }
 }
 
+export const getFilesOrderByName = (parentId, desc) => {
+    const authorization = localStorage.getItem("rememberMe") === "true" ? localStorage.getItem("token") : sessionStorage.getItem("token")
+    return async (dispatch) => {
+        const response = await axios.get(`${API_URL}/files/order/name?${parentId != null ? `parent_id=${parentId}&` : ""}desc=${desc}`, {headers:{Authorization: `Bearer ${authorization}`}})
+        dispatch(setFiles(response.data))
+        dispatch(setParentId(parentId))
+    }
+}
+
+export const getFilesOrderByType = (parentId, desc) => {
+    const authorization = localStorage.getItem("rememberMe") === "true" ? localStorage.getItem("token") : sessionStorage.getItem("token")
+    return async (dispatch) => {
+        const response = await axios.get(`${API_URL}/files/order/type?${parentId != null ? `?parent_id=${parentId}&` : ""}desc=${desc}`, {headers:{Authorization: `Bearer ${authorization}`}})
+        dispatch(setFiles(response.data))
+        dispatch(setParentId(parentId))
+    }
+}
 
 export const createDir = (parentId, dirName) => {
     const authorization = localStorage.getItem("rememberMe") === "true" ? localStorage.getItem("token") : sessionStorage.getItem("token")

@@ -7,16 +7,18 @@ const ADD_UPLOADING_FILE = "ADD_UPLOADING_FILE"
 const CHANGE_UPLOADING_PROGRESS = "CHANGE_UPLOADING_PROGRESS"
 const SET_PARENT_ID = "SET_PARENT_ID"
 const SET_FILES_STYLE = "SET_FILES_STYLE"
+const SET_ORDER_DESK = "SET_ORDER_DESK"
 
 const defaultState = {
     files: [],
     parentId: null,
-    path:"utimur/",
+    path:"/",
     backId: null,
     createDirVisible:"none",
     uploaderDisplay: "none",
     uploadingFiles: [],
-    filesStyle: "small-plate"
+    filesStyle: "small-plate",
+    descOrder: false
 }
 
 export default function fileReducer(state = defaultState, action) {
@@ -68,6 +70,11 @@ export default function fileReducer(state = defaultState, action) {
                 ...state,
                 filesStyle: action.payload
             }
+        case SET_ORDER_DESK:
+            return {
+                ...state,
+                descOrder: action.payload
+            }
         default:
             return state
 
@@ -83,3 +90,4 @@ export const addUploadingFile = (file) => ({type:ADD_UPLOADING_FILE, payload:fil
 export const changeUploadingProgress = (file) => ({type:CHANGE_UPLOADING_PROGRESS, payload:file})
 export const setParentId = (parentId) => ({type:SET_PARENT_ID, payload:parentId})
 export const setFileStyle = (style) => ({type:SET_FILES_STYLE, payload:style})
+export const setDescOrder = (bool) => ({type:SET_ORDER_DESK, payload:bool})

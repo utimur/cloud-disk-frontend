@@ -27,7 +27,7 @@ const LeftBar = ({reference, width}) => {
             </div>
             <div className="memory">
                 <div className="fullbar"><div className="freebar" style={{width:Math.ceil((currentUser.freeSpace / (10*1024*1024*1024))*100)+"%"}}/></div>
-                <div className="memory-count" >Занято {sizeFormater(currentUser.freeSpace)}</div>
+                <div className="memory-count" >Занято {sizeFormater(currentUser.freeSpace)}\10Gb</div>
             </div>
             <div className="upload">
                 <label htmlFor="upload-input">Загрузить файлы</label>
