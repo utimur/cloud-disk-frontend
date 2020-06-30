@@ -1,10 +1,14 @@
 @import "../../../../utils/colors";
 
-.files{
+button:active, button:focus {
+  outline: none;
+}
+
+.files-list{
   margin-top: 15px;
   margin-left: 15px;
   
-  .files-header {
+  .files-list-header {
     display: grid;
     grid-template-columns:  1fr 3fr 1fr 1fr 1fr 1fr;
     color: @darkLight;
@@ -25,4 +29,9 @@
     }
   }
 
+}
+
+.files-small-plate {
+  display: flex;
+  flex-wrap: wrap;
 }

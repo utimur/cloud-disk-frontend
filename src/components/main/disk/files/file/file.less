@@ -1,6 +1,6 @@
 @import "../../../../../utils/colors";
 
-.file {
+.file-list {
   margin-top: 10px;
   width: 100%;
   display: grid;
@@ -32,11 +32,11 @@
     justify-self: center;
   }
 
-  &:hover .file-date {
+  &:hover &-date {
     display: none;
   }
 
-  &:hover .file-size {
+  &:hover &-size {
     display: none;
   }
 
@@ -109,5 +109,89 @@
     position: absolute;
     background-color: @darkLight;
     display: none;
+  }
+}
+
+
+
+.file-small-plate {
+  margin:15px 1px 0 1px;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  width: 14%;
+  overflow-x: hidden;
+  white-space: nowrap;
+  &:hover {
+    transform: scale(1.05);
+  }
+  &:hover &-name {
+    display: none;
+  }
+  &:hover &-btns-download-btn {
+    display: flex;
+  }
+
+  &:hover &-btns-favor-btn {
+    display: flex;
+  }
+
+  &:hover &-btns-basket-btn {
+    display: flex;
+  }
+  &-img {
+    width: 100px;
+    height: 100px;
+  }
+
+
+
+  &-btns {
+    display: flex;
+    //position: absolute;
+    top: 50px;
+    &-favor-btn, &-basket-btn, &-download-btn {
+
+      //border: 1px solid @light;
+      height: fit-content;
+      width: fit-content;
+      padding: 3px;
+      display: none;
+      border-radius: 18px;
+      button {
+        border: none;
+        outline: none;
+        background-size: contain;
+
+        &:hover {
+          outline: none;
+        }
+      }
+    }
+
+    &-favor-btn {
+      button {
+        height: 20px;
+        width: 20px;
+        background: url("../../../../../assets/img/button-favor.svg") no-repeat center center;
+      }
+    }
+
+    &-download-btn {
+      button {
+        height: 20px;
+        width: 20px;
+        background: url("../../../../../assets/img/button-download.svg") no-repeat center center;
+      }
+    }
+
+    &-basket-btn {
+      button {
+        height: 20px;
+        width: 20px;
+        background: url("../../../../../assets/img/button-basket.svg") no-repeat center center;
+      }
+    }
   }
 }

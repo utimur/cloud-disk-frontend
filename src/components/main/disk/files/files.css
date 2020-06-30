@@ -1,23 +1,31 @@
-.files {
+button:active,
+button:focus {
+  outline: none;
+}
+.files-list {
   margin-top: 15px;
   margin-left: 15px;
 }
-.files .files-header {
+.files-list .files-list-header {
   display: grid;
   grid-template-columns: 1fr 3fr 1fr 1fr 1fr 1fr;
   color: #566885;
   border-bottom: 1px solid #495974;
   padding-bottom: 2px;
 }
-.files .files-header-name {
+.files-list .files-list-header-name {
   grid-column-start: 2;
 }
-.files .files-header-date {
+.files-list .files-list-header-date {
   justify-self: center;
   grid-column-start: 5;
 }
-.files .files-header-size {
+.files-list .files-list-header-size {
   justify-self: center;
   grid-column-start: 6;
+}
+.files-small-plate {
+  display: flex;
+  flex-wrap: wrap;
 }
 /*# sourceMappingURL=files.css.map */

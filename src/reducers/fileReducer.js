@@ -6,6 +6,7 @@ const SET_UPLOADER_DiSPLAY = "SET_UPLOADER_DiSPLAY"
 const ADD_UPLOADING_FILE = "ADD_UPLOADING_FILE"
 const CHANGE_UPLOADING_PROGRESS = "CHANGE_UPLOADING_PROGRESS"
 const SET_PARENT_ID = "SET_PARENT_ID"
+const SET_FILES_STYLE = "SET_FILES_STYLE"
 
 const defaultState = {
     files: [],
@@ -14,7 +15,8 @@ const defaultState = {
     backId: null,
     createDirVisible:"none",
     uploaderDisplay: "none",
-    uploadingFiles: []
+    uploadingFiles: [],
+    filesStyle: "small-plate"
 }
 
 export default function fileReducer(state = defaultState, action) {
@@ -61,6 +63,11 @@ export default function fileReducer(state = defaultState, action) {
                 ...state,
                 parentId: action.payload
             }
+        case SET_FILES_STYLE:
+            return {
+                ...state,
+                filesStyle: action.payload
+            }
         default:
             return state
 
@@ -75,3 +82,4 @@ export const setUploaderDisplay = (display) => ({type:SET_UPLOADER_DiSPLAY, payl
 export const addUploadingFile = (file) => ({type:ADD_UPLOADING_FILE, payload:file})
 export const changeUploadingProgress = (file) => ({type:CHANGE_UPLOADING_PROGRESS, payload:file})
 export const setParentId = (parentId) => ({type:SET_PARENT_ID, payload:parentId})
+export const setFileStyle = (style) => ({type:SET_FILES_STYLE, payload:style})

@@ -7,6 +7,7 @@ import {
     setFiles, setParentId,
     setUploaderDisplay
 } from "../reducers/fileReducer";
+import {userLogin} from "../reducers/userReducer";
 
 export const uploadFile = (file, parentId) => {
     const authorization = localStorage.getItem("rememberMe") === "true" ? localStorage.getItem("token") : sessionStorage.getItem("token")
@@ -28,12 +29,12 @@ export const uploadFile = (file, parentId) => {
                 console.log("onUploadProgress", totalLength);
                 if (totalLength !== null) {
                     uploadingFile.progress = (Math.round((progressEvent.loaded * 100) / totalLength))
-                    console.log(uploadingFile)
                     dispatch(changeUploadingProgress(uploadingFile))
                 }
             }
         });
-        dispatch(addNewFile(response.data))
+        dispatch(addNewFile(response.data.file))
+        dispatch(userLogin(response.data.user))
     }
 }
 

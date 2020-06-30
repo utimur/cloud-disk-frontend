@@ -1,4 +1,4 @@
-.file {
+.file-list {
   margin-top: 10px;
   width: 100%;
   display: grid;
@@ -8,49 +8,49 @@
   border-bottom: 1px solid #495974;
   padding-bottom: 4px;
 }
-.file:hover {
+.file-list:hover {
   transform: scale(1.01);
 }
-.file:hover .file-download-btn {
+.file-list:hover .file-list-download-btn {
   display: flex;
   grid-column-start: 4;
   justify-self: center;
 }
-.file:hover .file-favor-btn {
+.file-list:hover .file-list-favor-btn {
   display: flex;
   grid-column-start: 5;
   justify-self: center;
 }
-.file:hover .file-basket-btn {
+.file-list:hover .file-list-basket-btn {
   display: flex;
   grid-column-start: 6;
   justify-self: center;
 }
-.file:hover .file-date {
+.file-list:hover .file-list-date {
   display: none;
 }
-.file:hover .file-size {
+.file-list:hover .file-list-size {
   display: none;
 }
-.file .file-img {
+.file-list .file-img {
   margin-left: 30px;
 }
-.file-name {
+.file-list-name {
   grid-column-start: 2;
 }
-.file-date {
+.file-list-date {
   justify-self: center;
   font-weight: 300;
   grid-column-start: 5;
 }
-.file-size {
+.file-list-size {
   justify-self: center;
   font-weight: 300;
   grid-column-start: 6;
 }
-.file-favor-btn,
-.file-basket-btn,
-.file-download-btn {
+.file-list-favor-btn,
+.file-list-basket-btn,
+.file-list-download-btn {
   border: 1px solid #566885;
   height: fit-content;
   width: fit-content;
@@ -58,36 +58,105 @@
   display: none;
   border-radius: 18px;
 }
-.file-favor-btn button,
-.file-basket-btn button,
-.file-download-btn button {
+.file-list-favor-btn button,
+.file-list-basket-btn button,
+.file-list-download-btn button {
   border: none;
   outline: none;
   background-size: contain;
 }
-.file-favor-btn button:hover,
-.file-basket-btn button:hover,
-.file-download-btn button:hover {
+.file-list-favor-btn button:hover,
+.file-list-basket-btn button:hover,
+.file-list-download-btn button:hover {
   outline: none;
 }
-.file-favor-btn button {
+.file-list-favor-btn button {
   height: 25px;
   width: 25px;
   background: url("../../../../../assets/img/button-favor.svg") no-repeat center center;
 }
-.file-download-btn button {
+.file-list-download-btn button {
   height: 25px;
   width: 25px;
   background: url("../../../../../assets/img/button-download.svg") no-repeat center center;
 }
-.file-basket-btn button {
+.file-list-basket-btn button {
   height: 25px;
   width: 25px;
   background: url("../../../../../assets/img/button-basket.svg") no-repeat center center;
 }
-.file .file-path {
+.file-list .file-path {
   position: absolute;
   background-color: #566885;
   display: none;
+}
+.file-small-plate {
+  margin: 15px 1px 0 1px;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  width: 14%;
+  overflow-x: hidden;
+  white-space: nowrap;
+}
+.file-small-plate:hover {
+  transform: scale(1.05);
+}
+.file-small-plate:hover .file-small-plate-name {
+  display: none;
+}
+.file-small-plate:hover .file-small-plate-btns-download-btn {
+  display: flex;
+}
+.file-small-plate:hover .file-small-plate-btns-favor-btn {
+  display: flex;
+}
+.file-small-plate:hover .file-small-plate-btns-basket-btn {
+  display: flex;
+}
+.file-small-plate-img {
+  width: 100px;
+  height: 100px;
+}
+.file-small-plate-btns {
+  display: flex;
+  top: 50px;
+}
+.file-small-plate-btns-favor-btn,
+.file-small-plate-btns-basket-btn,
+.file-small-plate-btns-download-btn {
+  height: fit-content;
+  width: fit-content;
+  padding: 3px;
+  display: none;
+  border-radius: 18px;
+}
+.file-small-plate-btns-favor-btn button,
+.file-small-plate-btns-basket-btn button,
+.file-small-plate-btns-download-btn button {
+  border: none;
+  outline: none;
+  background-size: contain;
+}
+.file-small-plate-btns-favor-btn button:hover,
+.file-small-plate-btns-basket-btn button:hover,
+.file-small-plate-btns-download-btn button:hover {
+  outline: none;
+}
+.file-small-plate-btns-favor-btn button {
+  height: 20px;
+  width: 20px;
+  background: url("../../../../../assets/img/button-favor.svg") no-repeat center center;
+}
+.file-small-plate-btns-download-btn button {
+  height: 20px;
+  width: 20px;
+  background: url("../../../../../assets/img/button-download.svg") no-repeat center center;
+}
+.file-small-plate-btns-basket-btn button {
+  height: 20px;
+  width: 20px;
+  background: url("../../../../../assets/img/button-basket.svg") no-repeat center center;
 }
 /*# sourceMappingURL=file.css.map */

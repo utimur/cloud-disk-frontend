@@ -7,9 +7,8 @@ import {getFiles} from "../../../../actions/file";
 const Files = () => {
 
     const files = useSelector(state => state.fileReducer.files)
-
-
     const parentId = useSelector(state => state.fileReducer.parentId)
+    const filesStyle = useSelector(state => state.fileReducer.filesStyle)
     const dispatch = useDispatch()
 
 
@@ -17,18 +16,33 @@ const Files = () => {
         dispatch(getFiles(parentId))
     }, [])
 
-    return (
-        <div className="files">
-            <div className="files-header">
-                <div className="files-header-name">Название</div>
-                <div className="files-header-date">Дата</div>
-                <div className="files-header-size">Размер</div>
+
+
+    if(filesStyle == "list") {
+        return (
+            <div className="files-list">
+                <div className="files-list-header">
+                    <div className="files-list-header-name">Название</div>
+                    <div className="files-list-header-date">Дата</div>
+                    <div className="files-list-header-size">Размер</div>
+                </div>
+                {files.map(file=>
+                    <File key={file.id} file={file}/>
+                )}
             </div>
-            {files.map(file=>
-                <File key={file.id} file={file}/>
-            )}
-        </div>
-    );
+        );
+    }
+
+    if(filesStyle == "small-plate") {
+        return (
+            <div className="files-small-plate">
+                {files.map(file=>
+                    <File key={file.id} file={file}/>
+                )}
+            </div>
+        );
+    }
+
 };
 
 export default Files;
