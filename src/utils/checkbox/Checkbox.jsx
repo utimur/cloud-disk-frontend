@@ -8,7 +8,7 @@ const Checkbox = (props) => {
     return (
         <div className="checkbox">
             <input onClick={()=>setChecked(!checked)} checked={checked} id="checkbox" type="checkbox"/>
-            <label htmlFor="checkbox"><span></span>Запомнить меня?</label>
+            <label htmlFor="checkbox"><span></span>{props.text}</label>
         </div>
     );
 };
