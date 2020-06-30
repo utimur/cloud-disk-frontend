@@ -10,6 +10,7 @@ const Disk = () => {
     const parentId = useSelector(state => state.fileReducer.parentId)
     const backId = useSelector(state => state.fileReducer.backId)
     const [dragEnter, setDragEnter] = useState(false)
+    const path = useSelector(state => state.fileReducer.path);
 
 
 
@@ -53,9 +54,9 @@ const Disk = () => {
                     <button className="disk-header-back-btn" onClick={() => backButtonClick()}/>
                 </div>
                 <div className="disk-header-name">Videos</div>
-
             </div>
             <DiskSettings/>
+            <div className="path">{path}</div>
             <Files/>
         </div>
             :

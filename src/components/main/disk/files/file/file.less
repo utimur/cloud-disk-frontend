@@ -9,27 +9,33 @@
   align-items: center;
   border-bottom: 1px solid #495974;
   padding-bottom: 4px;
+
   &:hover {
     transform: scale(1.01);
   }
+
   &:hover &-download-btn {
     display: flex;
     grid-column-start: 4;
     justify-self: center;
   }
+
   &:hover &-favor-btn {
     display: flex;
     grid-column-start: 5;
     justify-self: center;
   }
+
   &:hover &-basket-btn {
     display: flex;
     grid-column-start: 6;
     justify-self: center;
   }
+
   &:hover .file-date {
     display: none;
   }
+
   &:hover .file-size {
     display: none;
   }
@@ -98,4 +104,10 @@
     }
   }
 
+
+  .file-path {
+    position: absolute;
+    background-color: @darkLight;
+    display: none;
+  }
 }

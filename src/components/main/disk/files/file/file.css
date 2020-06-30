@@ -85,4 +85,9 @@
   width: 25px;
   background: url("../../../../../assets/img/button-basket.svg") no-repeat center center;
 }
+.file .file-path {
+  position: absolute;
+  background-color: #566885;
+  display: none;
+}
 /*# sourceMappingURL=file.css.map */

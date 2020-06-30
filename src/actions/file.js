@@ -3,7 +3,7 @@ import {API_URL} from "../config";
 import {
     addNewFile,
     addUploadingFile,
-    changeUploadingProgress,
+    changeUploadingProgress, deleteFile,
     setFiles, setParentId,
     setUploaderDisplay
 } from "../reducers/fileReducer";
@@ -41,7 +41,7 @@ export const uploadFile = (file, parentId) => {
 export const getFiles = (parentId) => {
     const authorization = localStorage.getItem("rememberMe") === "true" ? localStorage.getItem("token") : sessionStorage.getItem("token")
     return async (dispatch) => {
-        const response = await axios.get(`${API_URL}/files?${parentId != null ? `parent_id=${parentId}` : ""}`, {headers:{Authorization: `Bearer ${authorization}`}})
+        const response = await axios.get(`${API_URL}/files${parentId != null ? `?parent_id=${parentId}` : ""}`, {headers:{Authorization: `Bearer ${authorization}`}})
         dispatch(setFiles(response.data))
         dispatch(setParentId(parentId))
         console.log(response.data)
@@ -67,16 +67,39 @@ export const createDir = (parentId, dirName) => {
     }
 }
 
+export const downloadFile = async (file) => {
+    const authorization = localStorage.getItem("rememberMe") === "true" ? localStorage.getItem("token") : sessionStorage.getItem("token")
+    const response = await fetch(`http://localhost:8080/files/download?file_id=${file.id}`,{headers:{Authorization: `Bearer ${authorization}`}});
+    if (response.status === 200) {
+        const blob = await response.blob();
+        const downloadUrl = window.URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = downloadUrl;
+        link.download = `${file.name}`;
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+    }
+}
+
+export const deleteFileFromServer = (file) => {
+    const authorization = localStorage.getItem("rememberMe") === "true" ? localStorage.getItem("token") : sessionStorage.getItem("token")
+    return async (dispatch) => {
+        await axios.delete(`${API_URL}/files?file_id=${file.id}`, {headers:{Authorization: `Bearer ${authorization}`}})
+        dispatch(deleteFile(file))
+    }
+}
+
 
 export const sizeFormater = (size) => {
     if(size > 1024*1024*1024) {
-        return Math.ceil(size/(1024*1024*1024))+"Gb"
+        return (size/(1024*1024*1024)).toFixed(1)+"Gb"
     }
     if(size > 1024*1024) {
-        return Math.ceil(size/(1024*1024))+"Mb"
+        return (size/(1024*1024)).toFixed(1)+"Mb"
     }
     if(size > 1024) {
-        return Math.ceil(size/(1024))+"Kb"
+        return (size/(1024)).toFixed(1)+"Kb"
     }
     return size+"B"
 }

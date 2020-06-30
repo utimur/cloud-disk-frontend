@@ -36,6 +36,12 @@
 .disk-header-download-btn:active {
   outline: none;
 }
+.disk .path {
+  margin-left: 20px;
+  margin-top: 10px;
+  word-break: break-word;
+  white-space: pre-line;
+}
 .drop-area {
   width: 100%;
   height: calc(100vh - 100px);
