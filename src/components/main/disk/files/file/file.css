@@ -91,7 +91,8 @@
   display: none;
 }
 .file-small-plate {
-  margin: 15px 1px 0 1px;
+  margin-top: 15px;
+  margin-right: 2px;
   display: flex;
   position: relative;
   flex-direction: column;
@@ -118,6 +119,15 @@
 .file-small-plate-img {
   width: 100px;
   height: 100px;
+}
+.file-small-plate-name {
+  width: 100px;
+  text-align: center;
+  white-space: nowrap;
+  /* Отменяем перенос текста */
+  overflow: hidden;
+  /* Обрезаем содержимое */
+  text-overflow: ellipsis;
 }
 .file-small-plate-btns {
   display: flex;

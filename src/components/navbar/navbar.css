@@ -17,6 +17,14 @@
   margin-left: 10px;
   cursor: pointer;
 }
+.navbar-wrap .search-input {
+  border-radius: 18px;
+  background-color: #F6F5F3;
+  border: none;
+  outline: none;
+  margin-left: 70px;
+  padding: 1px 10px;
+}
 .navbar-wrap .right {
   margin-left: auto;
   display: flex;

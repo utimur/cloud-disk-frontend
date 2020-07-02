@@ -35,3 +35,36 @@ button:active, button:focus {
   display: flex;
   flex-wrap: wrap;
 }
+
+
+.files-empty, .search-fetching {
+  height: calc(100vh - 250px);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+}
+
+.search-fetching {
+  &-circle {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    border: 3px dashed @light;
+    animation-name: search-fetching;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+}
+
+
+@keyframes search-fetching {
+  0%{
+    transform: rotate(0grad);
+  }
+  100% {
+    transform: rotate(390grad);
+  }
+}
