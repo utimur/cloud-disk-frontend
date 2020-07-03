@@ -119,6 +119,17 @@ export const deleteFileFromServer = (file) => {
 }
 
 
+export const searchFile = (fileName) => {
+    const authorization = localStorage.getItem("rememberMe") === "true" ? localStorage.getItem("token") : sessionStorage.getItem("token")
+    return async (dispatch) => {
+        const authorization = localStorage.getItem("rememberMe") === "true" ? localStorage.getItem("token") : sessionStorage.getItem("token")
+        const response = await axios.get(`http://localhost:8080/files/search/name?name=${fileName}`, {headers: {Authorization: `Bearer ${authorization}`}})
+        dispatch(setFiles(response.data));
+    }
+}
+
+
+
 export const sizeFormater = (size) => {
     if(size > 1024*1024*1024) {
         return (size/(1024*1024*1024)).toFixed(1)+"Gb"

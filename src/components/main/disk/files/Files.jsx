@@ -8,14 +8,33 @@ const Files = () => {
 
     const files = useSelector(state => state.fileReducer.files)
     const parentId = useSelector(state => state.fileReducer.parentId)
+    const isSearch = useSelector(state => state.fileReducer.isSearch)
     const filesStyle = useSelector(state => state.fileReducer.filesStyle)
     const dispatch = useDispatch()
 
 
-    useEffect(()=>{
-        dispatch(getFiles(parentId))
-    }, [])
+    // useEffect(()=>{
+    //     dispatch(getFiles(parentId))
+    // }, [])
 
+
+    if (isSearch == true) {
+        return (
+            <div className="search-fetching">
+                <div className="search-fetching-circle">
+                </div>
+            </div>
+        )
+    }
+
+
+    if (files.length == 0) {
+        return (
+            <div className="files-empty">
+                Файлы не найдены
+            </div>
+        );
+    }
 
 
     if(filesStyle == "list") {

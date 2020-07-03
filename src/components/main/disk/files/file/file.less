@@ -115,7 +115,8 @@
 
 
 .file-small-plate {
-  margin:15px 1px 0 1px;
+  margin-top: 15px;
+  margin-right: 2px;
   display: flex;
   position: relative;
   flex-direction: column;
@@ -145,7 +146,13 @@
     height: 100px;
   }
 
-
+  &-name {
+    width: 100px;
+    text-align: center;
+    white-space: nowrap; /* Отменяем перенос текста */
+    overflow: hidden; /* Обрезаем содержимое */
+    text-overflow: ellipsis;
+  }
 
   &-btns {
     display: flex;
