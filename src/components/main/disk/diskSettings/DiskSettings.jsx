@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import "./diskSettings.css";
 import {useDispatch, useSelector} from "react-redux";
-import {createDir, getFilesOrderByName, getFilesOrderByType} from "../../../../actions/file";
+import {createDir, getFilesOrderByName, getFilesOrderByType, getFilesOrderByDate} from "../../../../actions/file";
 import {setCreateDirVisible, setDescOrder, setFileStyle} from "../../../../reducers/fileReducer";
 import listActiveLogo from '../../../../assets/img/button-list-active.svg'
 import listLogo from '../../../../assets/img/button-list.svg'
@@ -34,6 +34,9 @@ const DiskSettings = () => {
                 break
             case "type":
                 dispatch(getFilesOrderByType(parentId, descOrder))
+                break
+            case "date":
+                dispatch(getFilesOrderByDate(parentId, descOrder))
                 break
         }
     }, [descOrder, selectValue])

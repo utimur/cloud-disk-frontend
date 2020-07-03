@@ -66,6 +66,17 @@ export const getFilesOrderByType = (parentId, desc) => {
     }
 }
 
+export const getFilesOrderByDate = (parentId, desc) => {
+    const authorization = localStorage.getItem("rememberMe") === "true"? localStorage.getItem("token") : sessionStorage.getItem("token")
+    return async (dispatch) => {
+        const response = await axios.get(`${API_URL}/files/order/date?${parentId != null? `parent_id=${parentId}&`:""}desc=${desc}`, {headers: {Authorization: `Bearer ${authorization}`}})
+        dispatch(setFiles(response.data))
+        dispatch(setParentId(parentId))
+        console.log("OrderByDate:", response.data)
+    }
+
+}
+
 export const createDir = (parentId, dirName) => {
     const authorization = localStorage.getItem("rememberMe") === "true" ? localStorage.getItem("token") : sessionStorage.getItem("token")
     return async (dispatch) => {
