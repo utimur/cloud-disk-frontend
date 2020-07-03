@@ -13,8 +13,9 @@ export const login = (username, password, rememberMe, history) => {
 }
 
 
-export const auth = () => {
-    const authorization = localStorage.getItem("rememberMe") === "true" ? localStorage.getItem("token") : sessionStorage.getItem("token")
+export const auth = (authorization = "") => {
+    if (authorization === "")
+        authorization = localStorage.getItem("rememberMe") === "true" ? localStorage.getItem("token") : sessionStorage.getItem("token")
     return async (dispatch) => {
         const response = await axios.get(`${API_URL}/auth`, {headers:{Authorization: `Bearer ${authorization}`}})
         dispatch(userLogin(response.data.user))
@@ -22,6 +23,17 @@ export const auth = () => {
             localStorage.setItem("token", response.data.token)
         }
     }
+}
+export const registration = async (username, password, email) => {
+    axios.post(`${API_URL}/auth/register`, {username, password, mail:email}).catch(e =>
+        alert("Registration is not success")
+    )
+}
+
+export const activation = (authorization) => {
+    axios.get(`${API_URL}/auth/activation`, {headers: {Authorization: `Bearer ${authorization}`}}).catch( e =>
+        alert("Activation is not success")
+    )
 }
 
 
