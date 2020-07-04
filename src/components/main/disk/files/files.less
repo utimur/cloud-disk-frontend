@@ -31,7 +31,7 @@ button:active, button:focus {
 
 }
 
-.files-small-plate {
+.files-plate {
   display: flex;
   flex-wrap: wrap;
 }
@@ -56,15 +56,16 @@ button:active, button:focus {
     animation-duration: 1s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
+    animation-direction: alternate;
   }
 }
 
 
 @keyframes search-fetching {
   0%{
-    transform: rotate(0grad);
+    transform: rotate(0grad) scale(1.0);
   }
   100% {
-    transform: rotate(390grad);
+    transform: rotate(390grad) scale(1.3);
   }
 }

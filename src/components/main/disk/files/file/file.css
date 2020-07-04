@@ -10,13 +10,14 @@
 }
 .file-list:hover {
   transform: scale(1.01);
+  cursor: pointer;
 }
 .file-list:hover .file-list-download-btn {
   display: flex;
   grid-column-start: 5;
   justify-self: center;
 }
-.file-list:hover .file-list-share-btn {
+.file-list:hover .file-share-btn {
   display: flex;
   grid-column-start: 4;
   justify-self: center;
@@ -62,7 +63,7 @@
 .file-list-basket-btn,
 .file-list-download-btn,
 .file-list-unfavor-btn,
-.file-list-share-btn {
+.file-list .file-share-btn {
   border: 1px solid #566885;
   height: fit-content;
   width: fit-content;
@@ -74,7 +75,7 @@
 .file-list-basket-btn button,
 .file-list-download-btn button,
 .file-list-unfavor-btn button,
-.file-list-share-btn button {
+.file-list .file-share-btn button {
   border: none;
   outline: none;
   background-size: cover;
@@ -83,7 +84,7 @@
 .file-list-basket-btn button:hover,
 .file-list-download-btn button:hover,
 .file-list-unfavor-btn button:hover,
-.file-list-share-btn button:hover {
+.file-list .file-share-btn button:hover {
   outline: none;
 }
 .file-list-favor-btn button {
@@ -96,7 +97,7 @@
   width: 25px;
   background: url("../../../../../assets/img/button-unfavor.svg") no-repeat center center;
 }
-.file-list-share-btn button {
+.file-list .file-share-btn button {
   height: 25px;
   width: 25px;
   background: url("../../../../../assets/img/button-share.svg") no-repeat center center;
@@ -120,10 +121,13 @@
   grid-column-start: 4;
 }
 .share-menu {
+  margin-top: 5px;
   color: #222A3F;
   background-color: white;
   padding: 10px;
   border-radius: 12px;
+  position: absolute;
+  z-index: 999;
 }
 .share-menu-flex {
   display: flex;
@@ -148,11 +152,11 @@
   flex-direction: column;
   align-items: center;
   width: 14%;
-  overflow-x: hidden;
   white-space: nowrap;
 }
 .file-small-plate:hover {
   transform: scale(1.05);
+  cursor: pointer;
 }
 .file-small-plate:hover .file-small-plate-name {
   display: none;
@@ -160,7 +164,7 @@
 .file-small-plate:hover .file-small-plate-btns-download-btn {
   display: flex;
 }
-.file-small-plate:hover .file-small-plate-btns-share-btn {
+.file-small-plate:hover .file-share-btn {
   display: flex;
 }
 .file-small-plate:hover .file-small-plate-btns-favor-btn {
@@ -193,7 +197,7 @@
 .file-small-plate-btns-basket-btn,
 .file-small-plate-btns-download-btn,
 .file-small-plate-btns-unfavor-btn,
-.file-small-plate-btns-share-btn {
+.file-small-plate-btns .file-share-btn {
   height: fit-content;
   width: fit-content;
   padding: 3px;
@@ -204,7 +208,7 @@
 .file-small-plate-btns-basket-btn button,
 .file-small-plate-btns-download-btn button,
 .file-small-plate-btns-unfavor-btn button,
-.file-small-plate-btns-share-btn button {
+.file-small-plate-btns .file-share-btn button {
   border: none;
   outline: none;
   background-size: contain;
@@ -213,7 +217,7 @@
 .file-small-plate-btns-basket-btn button:hover,
 .file-small-plate-btns-download-btn button:hover,
 .file-small-plate-btns-unfavor-btn button:hover,
-.file-small-plate-btns-share-btn button:hover {
+.file-small-plate-btns .file-share-btn button:hover {
   outline: none;
 }
 .file-small-plate-btns-favor-btn button {
@@ -221,7 +225,7 @@
   width: 20px;
   background: url("../../../../../assets/img/button-favor.svg") no-repeat center center;
 }
-.file-small-plate-btns-share-btn button {
+.file-small-plate-btns .file-share-btn button {
   height: 20px;
   width: 20px;
   background: url("../../../../../assets/img/button-share.svg") no-repeat center center;
@@ -239,6 +243,66 @@
 .file-small-plate-btns-basket-btn button {
   height: 20px;
   width: 20px;
+  background: url("../../../../../assets/img/button-basket.svg") no-repeat center center;
+}
+.file-big-plate {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.file-big-plate:hover .file-big-plate-name {
+  display: none;
+}
+.file-big-plate:hover {
+  cursor: pointer;
+  transform: scale(1.01);
+}
+.file-big-plate:hover .file-big-plate-btns {
+  display: flex;
+  flex-direction: row;
+}
+.file-big-plate-img {
+  width: 200px;
+  height: 200px;
+}
+.file-big-plate-name {
+  width: 180px;
+  text-align: center;
+  white-space: nowrap;
+  /* Отменяем перенос текста */
+  overflow: hidden;
+  /* Обрезаем содержимое */
+  text-overflow: ellipsis;
+}
+.file-big-plate-btns {
+  display: none;
+}
+.file-big-plate-btns-download-btn,
+.file-big-plate-btns-favor-btn,
+.file-big-plate-btns-basket-btn,
+.file-big-plate-btns .file-share-btn {
+  padding: 3px;
+}
+.file-big-plate-btns-download-btn button,
+.file-big-plate-btns-favor-btn button,
+.file-big-plate-btns-basket-btn button,
+.file-big-plate-btns .file-share-btn button {
+  background-size: contain;
+  width: 20px;
+  height: 20px;
+  border: none;
+}
+.file-big-plate-btns-download-btn button {
+  background: url("../../../../../assets/img/button-download.svg") no-repeat center center;
+}
+.file-big-plate-btns-favor-btn button {
+  background: url("../../../../../assets/img/button-favor.svg") no-repeat center center;
+}
+.file-big-plate-btns .file-share-btn button {
+  background: url("../../../../../assets/img/button-share.svg") no-repeat center center;
+}
+.file-big-plate-btns-basket-btn button {
   background: url("../../../../../assets/img/button-basket.svg") no-repeat center center;
 }
 /*# sourceMappingURL=file.css.map */

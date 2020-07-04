@@ -9,9 +9,9 @@
   align-items: center;
   border-bottom: 1px solid #495974;
   padding-bottom: 4px;
-
   &:hover {
     transform: scale(1.01);
+    cursor: pointer;
   }
 
   &:hover &-download-btn {
@@ -19,7 +19,7 @@
     grid-column-start: 5;
     justify-self: center;
   }
-  &:hover &-share-btn {
+  &:hover .file-share-btn {
     display: flex;
     grid-column-start: 4;
     justify-self: center;
@@ -72,7 +72,7 @@
     grid-column-start: 6;
   }
 
-  &-favor-btn, &-basket-btn, &-download-btn, &-unfavor-btn, &-share-btn {
+  &-favor-btn, &-basket-btn, &-download-btn, &-unfavor-btn, .file-share-btn {
 
     border: 1px solid @darkLight;
     height: fit-content;
@@ -107,7 +107,7 @@
     }
   }
 
-  &-share-btn {
+  .file-share-btn {
     button {
       height: 25px;
       width: 25px;
@@ -144,10 +144,13 @@
   grid-column-start: 4;
 
   &-menu {
+    margin-top: 5px;
     color: @dark;
     background-color: white;
     padding: 10px;
     border-radius: 12px;
+    position: absolute;
+    z-index: 999;
     &-flex {
       display: flex;
 
@@ -178,10 +181,10 @@
   flex-direction: column;
   align-items: center;
   width: 14%;
-  overflow-x: hidden;
   white-space: nowrap;
   &:hover {
     transform: scale(1.05);
+    cursor: pointer;
   }
   &:hover &-name {
     display: none;
@@ -190,7 +193,7 @@
     display: flex;
   }
 
-  &:hover &-btns-share-btn {
+  &:hover .file-share-btn {
     display: flex;
   }
 
@@ -222,7 +225,7 @@
     display: flex;
     //position: absolute;
     top: 50px;
-    &-favor-btn, &-basket-btn, &-download-btn, &-unfavor-btn, &-share-btn {
+    &-favor-btn, &-basket-btn, &-download-btn, &-unfavor-btn, .file-share-btn {
 
       //border: 1px solid @light;
       height: fit-content;
@@ -249,7 +252,7 @@
       }
     }
 
-    &-share-btn {
+    .file-share-btn {
       button {
         height: 20px;
         width: 20px;
@@ -281,4 +284,72 @@
       }
     }
   }
+}
+
+.file-big-plate {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &:hover &-name{
+    display: none;
+  }
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.01);
+  }
+  &:hover &-btns {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &-img {
+    width: 200px;
+    height: 200px;
+  }
+  &-name {
+    width: 180px;
+    text-align: center;
+    white-space: nowrap; /* Отменяем перенос текста */
+    overflow: hidden; /* Обрезаем содержимое */
+    text-overflow: ellipsis;
+  }
+  &-btns {
+    display: none;
+
+    &-download-btn, &-favor-btn, &-basket-btn, .file-share-btn {
+      padding: 3px;
+      button {
+        background-size: contain;
+        width: 20px;
+        height: 20px;
+        border: none;
+
+      }
+    }
+    &-download-btn {
+      button {
+        background: url("../../../../../assets/img/button-download.svg") no-repeat center center;
+      }
+    }
+    &-favor-btn {
+      button {
+        background: url("../../../../../assets/img/button-favor.svg") no-repeat center center;
+      }
+    }
+    .file-share-btn {
+      button {
+        background: url("../../../../../assets/img/button-share.svg") no-repeat center center;
+      }
+    }
+    &-basket-btn {
+      button {
+        background: url("../../../../../assets/img/button-basket.svg") no-repeat center center;
+      }
+    }
+
+  }
+
 }

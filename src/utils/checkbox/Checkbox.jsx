@@ -5,9 +5,14 @@ const Checkbox = (props) => {
 
     const {checked, setChecked} = props
 
+    function onCheckClick(e) {
+        e.stopPropagation()
+        setChecked(!checked)
+    }
+
     return (
         <div className="checkbox">
-            <input onClick={()=>setChecked(!checked)} checked={checked} id="checkbox" type="checkbox"/>
+            <input onClick={(e)=> onCheckClick(e)} checked={checked} id="checkbox" type="checkbox"/>
             <label htmlFor="checkbox"><span></span>{props.text}</label>
         </div>
     );

@@ -18,7 +18,7 @@ const defaultState = {
     createDirVisible:"none",
     uploaderDisplay: "none",
     uploadingFiles: [],
-    filesStyle: "small-plate",
+    filesStyle: "list",
     descOrder: false,
     isSearch: false
 }

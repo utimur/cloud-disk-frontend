@@ -61,7 +61,7 @@ const Disk = () => {
         </div>
             :
             <div onDrop={dropFile} onDragOver={e =>dragOver(e)} onDragStart={(e)=>e.preventDefault()} className="drop-area" onDragLeave={(e)=>dragLeave(e)}>
-               Перетащите файл в выделеную область для загрузки
+               Перетащите сюда свои файлы
             </div>
     );
 };
