@@ -228,3 +228,63 @@
     }
   }
 }
+
+.file-big-plate {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &:hover &-name{
+    display: none;
+  }
+
+  &:hover {
+    transform: scale(1.01);
+  }
+  &:hover &-btns {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &-img {
+    width: 200px;
+    height: 200px;
+  }
+  &-name {
+    white-space: nowrap; /* Отменяем перенос текста */
+    overflow: hidden; /* Обрезаем содержимое */
+    text-overflow: ellipsis;
+  }
+  &-btns {
+    display: none;
+
+    &-download-btn, &-favor-btn, &-basket-btn {
+      padding: 3px;
+      button {
+        background-size: contain;
+        width: 20px;
+        height: 20px;
+        border: none;
+
+      }
+    }
+    &-download-btn {
+      button {
+        background: url("../../../../../assets/img/button-download.svg") no-repeat center center;
+      }
+    }
+    &-favor-btn {
+      button {
+        background: url("../../../../../assets/img/button-favor.svg") no-repeat center center;
+      }
+    }
+    &-basket-btn {
+      button {
+        background: url("../../../../../assets/img/button-basket.svg") no-repeat center center;
+      }
+    }
+
+  }
+
+}

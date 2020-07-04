@@ -24,7 +24,7 @@ button:focus {
   justify-self: center;
   grid-column-start: 6;
 }
-.files-small-plate {
+.files-plate {
   display: flex;
   flex-wrap: wrap;
 }
@@ -46,13 +46,14 @@ button:focus {
   animation-duration: 1s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+  animation-direction: alternate;
 }
 @keyframes search-fetching {
   0% {
-    transform: rotate(0grad);
+    transform: rotate(0grad) scale(1);
   }
   100% {
-    transform: rotate(390grad);
+    transform: rotate(390grad) scale(1.3);
   }
 }
 /*# sourceMappingURL=files.css.map */

@@ -64,9 +64,22 @@ const File = ({file}) => {
                     {file.type == "dir" && isFavourite && <div className="file-small-plate-btns-unfavor-btn" onClick={(e)=>favouriteClick(e,file)}><button/></div>}
                     <div className="file-small-plate-btns-basket-btn"  onClick={(e)=>deleteClick(e)}><button/></div>
                 </div>
-
             </div>
         );
+    }
+
+    if (filesStyle === "big-plate") {
+        return (
+            <div className={"file-big-plate"}>
+                <img className={"file-big-plate-img"} src={file.type === "dir" ? directoryDark : fileDarkLogo} alt="big-plate-img"/>
+                <div className={"file-big-plate-name"}> {file.name }</div>
+                <div className={"file-big-plate-btns"}>
+                    {file.type !== "dir" && <div className={"file-big-plate-btns-download-btn"} onClick={(e) => downloadClick(e)}><button/></div>}
+                    <div className={"file-big-plate-btns-favor-btn"} onClick={(e) => e.stopPropagation()}><button/></div>
+                    <div className={"file-big-plate-btns-basket-btn"} onClick={(e) => deleteClick(e)}><button/></div>
+                </div>
+            </div>
+        )
     }
 
 };
