@@ -8,6 +8,7 @@ import listLogo from '../../../../assets/img/button-list.svg'
 import smallPlateLogo from '../../../../assets/img/button-small-plate.svg'
 import smallPlateActiveLogo from '../../../../assets/img/button-small-plate-active.svg'
 import bigPlateLogo from '../../../../assets/img/button-big-plate.svg'
+import bigPlateActiveLogo from "../../../../assets/img/button-big-plate-active.svg"
 import orderLogo from '../../../../assets/img/button-sort-order.svg'
 import orderDescLogo from '../../../../assets/img/button-sort-order-desc.svg'
 
@@ -52,7 +53,7 @@ const DiskSettings = () => {
                 <option selected={true} value="type">По типу</option>
                 <option value="date">По дате создания</option>
             </select>
-            <img src={bigPlateLogo} className="settings-big-plate-btn"/>
+            <img src={filesStyle === "big-plate"? bigPlateActiveLogo : bigPlateLogo} onClick={() => dispatch(setFileStyle("big-plate"))} className="settings-big-plate-btn"/>
             <img src={filesStyle == "small-plate" ? smallPlateActiveLogo : smallPlateLogo} className="settings-small-plate-btn" onClick={()=>dispatch(setFileStyle("small-plate"))}/>
             <img src={filesStyle == "list" ? listActiveLogo : listLogo} className="settings-list-btn"  onClick={()=>dispatch(setFileStyle("list"))}/>
         </div>

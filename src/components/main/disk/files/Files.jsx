@@ -52,9 +52,9 @@ const Files = () => {
         );
     }
 
-    if(filesStyle == "small-plate") {
+    if(filesStyle === "small-plate" || filesStyle === "big-plate") {
         return (
-            <div className="files-small-plate">
+            <div className="files-plate">
                 {files.map(file=>
                     <File key={file.id} file={file}/>
                 )}
