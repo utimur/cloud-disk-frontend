@@ -8,11 +8,13 @@ import {deleteFileFromServer, downloadFile, getFiles, sizeFormater} from "../../
 import {useDispatch, useSelector} from "react-redux";
 import {setParentId} from "../../../../../reducers/fileReducer";
 import axios from 'axios';
+import {saveFavourite} from "../../../../../actions/favourites";
 
 const File = ({file}) => {
 
     const dispatch = useDispatch()
     const filesStyle = useSelector(state => state.fileReducer.filesStyle)
+    const [isFavourite, setIsFavourite] = useState(file.isFavourite)
 
     function onFileClick(file) {
         if(file.type == "dir") {
@@ -31,6 +33,11 @@ const File = ({file}) => {
         dispatch(deleteFileFromServer(file))
     }
 
+    function favouriteClick(e, file) {
+        e.stopPropagation()
+        dispatch(saveFavourite(file, setIsFavourite))
+    }
+
 
     if(filesStyle == "list"){
         return (
@@ -40,7 +47,8 @@ const File = ({file}) => {
                 <div className="file-list-date">26.06.2020</div>
                 <div className="file-list-size">{sizeFormater(file.size)}</div>
                 {file.type != "dir" && <div className="file-list-download-btn" onClick={(e)=>downloadClick(e)}><button/></div>}
-                <div className="file-list-favor-btn" onClick={(e)=>e.stopPropagation()}><button/></div>
+                {file.type == "dir" && !isFavourite && <div className="file-list-favor-btn" onClick={(e) => favouriteClick(e, file)}><button/></div>}
+                {file.type == "dir" && isFavourite && <div className="file-list-unfavor-btn" onClick={(e) => favouriteClick(e, file)}><button/></div>}
                 <div className="file-list-basket-btn"  onClick={(e)=>deleteClick(e)}><button/></div>
             </div>
         );
@@ -52,7 +60,8 @@ const File = ({file}) => {
                 <div className="file-small-plate-name">{file.name}</div>
                 <div className="file-small-plate-btns">
                     {file.type != "dir" && <div className="file-small-plate-btns-download-btn" onClick={(e)=>downloadClick(e)}><button/></div>}
-                    <div className="file-small-plate-btns-favor-btn" onClick={(e)=>e.stopPropagation()}><button/></div>
+                    {file.type == "dir" && !isFavourite && <div className="file-small-plate-btns-favor-btn" onClick={(e)=>favouriteClick(e,file)}><button/></div>}
+                    {file.type == "dir" && isFavourite && <div className="file-small-plate-btns-unfavor-btn" onClick={(e)=>favouriteClick(e,file)}><button/></div>}
                     <div className="file-small-plate-btns-basket-btn"  onClick={(e)=>deleteClick(e)}><button/></div>
                 </div>
 

@@ -13,11 +13,6 @@ const Files = () => {
     const dispatch = useDispatch()
 
 
-    // useEffect(()=>{
-    //     dispatch(getFiles(parentId))
-    // }, [])
-
-
     if (isSearch == true) {
         return (
             <div className="search-fetching">
