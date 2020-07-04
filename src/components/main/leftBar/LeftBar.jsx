@@ -2,11 +2,12 @@ import React, {useEffect, useRef} from 'react';
 import "./leftBar.css";
 import {sizeFormater, uploadFile} from "../../../actions/file";
 import {useDispatch, useSelector} from "react-redux";
+import {getFavourites} from "../../../actions/favourites";
 
 const LeftBar = ({reference, width}) => {
-    const favorMock = [{name:"Concerts"},{name:"Playbacks"},{name:"Мои документы"},{name:"Видео"},{name:"Фотографии"}, {name:"ОЧЕНЬ ОЧЕН ОЧЕНЬ ДЛИННОЕ НАЗВАНИЕ"}]
     const parentId = useSelector(state => state.fileReducer.parentId)
     const currentUser = useSelector(state => state.userReducer.currentUser)
+    const favourites = useSelector(state => state.favouriteReducer.favourites)
     const fileInputRef = useRef()
     const dispatch = useDispatch()
 
@@ -15,15 +16,21 @@ const LeftBar = ({reference, width}) => {
         files.forEach(file => dispatch(uploadFile(file, parentId)))
     }
 
-    console.log(Math.ceil((currentUser.freeSpace / (10*1024*1024*1024))*100))
+    useEffect(()=>{
+        dispatch(getFavourites())
+    }, [])
 
     return (
         <div ref={reference} style={{width:width+"px"}} className="leftbar">
             <div className="favourites">
                 <div className="favourites-header">Избранное</div>
-                {favorMock.map(favor =>
-                    <div className="favourites-item">{favor.name}</div>
-                )}
+                {favourites.length == 0 ? <div>Список пуст</div>
+                    :
+                    favourites.map(favor =>
+                        <div className="favourites-item">{favor.name}</div>
+                    )
+                }
+
             </div>
             <div className="memory">
                 <div className="fullbar"><div className="freebar" style={{width:Math.ceil((currentUser.freeSpace / (10*1024*1024*1024))*100)+"%"}}/></div>
