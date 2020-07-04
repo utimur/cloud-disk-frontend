@@ -1,6 +1,7 @@
 .main {
   display: flex;
   width: 100%;
+  position: relative;
 }
 .main .delimeter {
   width: 5px;

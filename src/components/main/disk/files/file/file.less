@@ -19,6 +19,12 @@
     grid-column-start: 5;
     justify-self: center;
   }
+  &:hover &-share-btn {
+    display: flex;
+    grid-column-start: 4;
+    justify-self: center;
+  }
+
 
   &:hover &-favor-btn {
     display: flex;
@@ -66,7 +72,7 @@
     grid-column-start: 6;
   }
 
-  &-favor-btn, &-basket-btn, &-download-btn, &-unfavor-btn {
+  &-favor-btn, &-basket-btn, &-download-btn, &-unfavor-btn, &-share-btn {
 
     border: 1px solid @darkLight;
     height: fit-content;
@@ -78,7 +84,7 @@
     button {
       border: none;
       outline: none;
-      background-size: contain;
+      background-size: cover;
 
       &:hover {
         outline: none;
@@ -98,6 +104,14 @@
       height: 25px;
       width: 25px;
       background: url("../../../../../assets/img/button-unfavor.svg") no-repeat center center;
+    }
+  }
+
+  &-share-btn {
+    button {
+      height: 25px;
+      width: 25px;
+      background: url("../../../../../assets/img/button-share.svg") no-repeat center center;
     }
   }
 
@@ -126,6 +140,34 @@
   }
 }
 
+.share {
+  grid-column-start: 4;
+
+  &-menu {
+    color: @dark;
+    background-color: white;
+    padding: 10px;
+    border-radius: 12px;
+    &-flex {
+      display: flex;
+
+      &-link{
+        margin-right: 15px;
+      }
+    }
+
+    &-btn {
+      padding: 3px 10px;
+      width: 100%;
+      border-radius: 8px;
+      background-color: @darkLight;
+      color: @light;
+      border: none;
+      outline: none;
+
+    }
+  }
+}
 
 
 .file-small-plate {
@@ -145,6 +187,10 @@
     display: none;
   }
   &:hover &-btns-download-btn {
+    display: flex;
+  }
+
+  &:hover &-btns-share-btn {
     display: flex;
   }
 
@@ -176,7 +222,7 @@
     display: flex;
     //position: absolute;
     top: 50px;
-    &-favor-btn, &-basket-btn, &-download-btn, &-unfavor-btn {
+    &-favor-btn, &-basket-btn, &-download-btn, &-unfavor-btn, &-share-btn {
 
       //border: 1px solid @light;
       height: fit-content;
@@ -200,6 +246,14 @@
         height: 20px;
         width: 20px;
         background: url("../../../../../assets/img/button-favor.svg") no-repeat center center;
+      }
+    }
+
+    &-share-btn {
+      button {
+        height: 20px;
+        width: 20px;
+        background: url("../../../../../assets/img/button-share.svg") no-repeat center center;
       }
     }
 

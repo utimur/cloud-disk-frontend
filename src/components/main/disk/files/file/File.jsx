@@ -9,6 +9,8 @@ import {useDispatch, useSelector} from "react-redux";
 import {setParentId} from "../../../../../reducers/fileReducer";
 import axios from 'axios';
 import {saveFavourite} from "../../../../../actions/favourites";
+import Checkbox from "../../../../../utils/checkbox/Checkbox";
+import {CLIENT_URL} from "../../../../../config";
 
 const File = ({file}) => {
 
@@ -46,6 +48,16 @@ const File = ({file}) => {
                 <div className="file-list-name">{file.name}</div>
                 <div className="file-list-date">26.06.2020</div>
                 <div className="file-list-size">{sizeFormater(file.size)}</div>
+                <div className="share">
+                    <div className="file-list-share-btn" ><button/></div>
+                    <div className="share-menu">
+                        <div className="share-menu-flex">
+                            <div className="share-menu-flex-link">{CLIENT_URL}</div>
+                            <Checkbox/>
+                        </div>
+                        <button className="share-menu-btn">Копировать ссылку</button>
+                    </div>
+                </div>
                 {file.type != "dir" && <div className="file-list-download-btn" onClick={(e)=>downloadClick(e)}><button/></div>}
                 {file.type == "dir" && !isFavourite && <div className="file-list-favor-btn" onClick={(e) => favouriteClick(e, file)}><button/></div>}
                 {file.type == "dir" && isFavourite && <div className="file-list-unfavor-btn" onClick={(e) => favouriteClick(e, file)}><button/></div>}
@@ -59,6 +71,7 @@ const File = ({file}) => {
                 <img className="file-small-plate-img" src={file.type === "dir" ? directoryDark : fileDarkLogo} alt=""/>
                 <div className="file-small-plate-name">{file.name}</div>
                 <div className="file-small-plate-btns">
+                    <div className="file-small-plate-btns-share-btn"><button/></div>
                     {file.type != "dir" && <div className="file-small-plate-btns-download-btn" onClick={(e)=>downloadClick(e)}><button/></div>}
                     {file.type == "dir" && !isFavourite && <div className="file-small-plate-btns-favor-btn" onClick={(e)=>favouriteClick(e,file)}><button/></div>}
                     {file.type == "dir" && isFavourite && <div className="file-small-plate-btns-unfavor-btn" onClick={(e)=>favouriteClick(e,file)}><button/></div>}

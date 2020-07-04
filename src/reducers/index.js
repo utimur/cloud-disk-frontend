@@ -4,11 +4,13 @@ import {composeWithDevTools} from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import fileReducer from "./fileReducer";
 import favouriteReducer from "./favouriteReducer";
+import shareReducer from "./shareReducer";
 
 const reducer =  combineReducers({
     userReducer,
     fileReducer,
     favouriteReducer,
+    shareReducer,
 })
 
 

@@ -57,6 +57,7 @@ const Main = (props) => {
             <Disk/>
             <CreateNewDir/>
             <Uploader/>
+
         </div>
     );
 };

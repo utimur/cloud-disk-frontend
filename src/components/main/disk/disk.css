@@ -1,6 +1,7 @@
 .disk {
   padding: 10px 0 0 10px;
   width: 100%;
+  position: relative;
 }
 .disk-header {
   display: grid;
