@@ -7,8 +7,7 @@ const ActivationForm = (props) => {
     const dispatch = useDispatch()
 
     useEffect( () => {
-        dispatch(auth(props.match.params.token))
-        activation(props.match.params.token)
+        dispatch(activation(props.match.params.token))
         props.history.push("/")
         }
     )

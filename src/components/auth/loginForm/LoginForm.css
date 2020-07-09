@@ -29,4 +29,12 @@
   margin: 10px;
   padding: 2px 5px;
 }
+.login-error {
+  color: red;
+}
+.login-sendActivation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 /*# sourceMappingURL=LoginForm.css.map */
