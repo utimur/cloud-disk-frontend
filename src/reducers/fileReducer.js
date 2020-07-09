@@ -9,6 +9,7 @@ const SET_PARENT_ID = "SET_PARENT_ID"
 const SET_FILES_STYLE = "SET_FILES_STYLE"
 const SET_ORDER_DESK = "SET_ORDER_DESK"
 const SET_IS_SEARCH = "SET_IS_SEARCH"
+const SET_LINK = "SET_LINK"
 
 const defaultState = {
     files: [],
@@ -20,7 +21,8 @@ const defaultState = {
     uploadingFiles: [],
     filesStyle: "list",
     descOrder: false,
-    isSearch: false
+    isSearch: false,
+    link: null
 }
 
 export default function fileReducer(state = defaultState, action) {
@@ -82,6 +84,11 @@ export default function fileReducer(state = defaultState, action) {
                 ...state,
                 isSearch: action.payload
             }
+        case SET_LINK:
+            return {
+                ...state,
+                link: action.payload
+            }
         default:
             return state
 
@@ -99,3 +106,4 @@ export const setParentId = (parentId) => ({type:SET_PARENT_ID, payload:parentId}
 export const setFileStyle = (style) => ({type:SET_FILES_STYLE, payload:style})
 export const setDescOrder = (bool) => ({type:SET_ORDER_DESK, payload:bool})
 export const setIsSearch = (bool) => ({type:SET_IS_SEARCH, payload:bool})
+export const setLink = (link) => ({type:SET_LINK, payload:link})

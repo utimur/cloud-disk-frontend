@@ -72,7 +72,16 @@ export const getFilesOrderByDate = (parentId, desc) => {
         const response = await axios.get(`${API_URL}/files/order/date?${parentId != null? `parent_id=${parentId}&`:""}desc=${desc}`, {headers: {Authorization: `Bearer ${authorization}`}})
         dispatch(setFiles(response.data))
         dispatch(setParentId(parentId))
-        console.log("OrderByDate:", response.data)
+    }
+
+}
+
+
+export const getFilesByLink = (link, parentId) => {
+    return async (dispatch) => {
+        const response = await axios.get(`${API_URL}/files/${link}?${parentId != null ? `parentId=${parentId}` : ""}`)
+        dispatch(setFiles(response.data))
+        dispatch(setParentId(parentId))
     }
 
 }
@@ -122,10 +131,25 @@ export const deleteFileFromServer = (file) => {
 export const searchFile = (fileName) => {
     const authorization = localStorage.getItem("rememberMe") === "true" ? localStorage.getItem("token") : sessionStorage.getItem("token")
     return async (dispatch) => {
-        const authorization = localStorage.getItem("rememberMe") === "true" ? localStorage.getItem("token") : sessionStorage.getItem("token")
         const response = await axios.get(`http://localhost:8080/files/search/name?name=${fileName}`, {headers: {Authorization: `Bearer ${authorization}`}})
         dispatch(setFiles(response.data));
     }
+}
+
+export const share = async (file, shareLink, setShareLink, shareDisplay, setShareDisplay) => {
+    if (shareDisplay === "none") {
+        if (shareLink == null) {
+            const authorization = localStorage.getItem("rememberMe") === "true" ? localStorage.getItem("token") : sessionStorage.getItem("token")
+            const response = await axios.post(`http://localhost:8080/files/share`,{id: file.id} ,{headers: {Authorization: `Bearer ${authorization}`}});
+            setShareLink(response.data);
+            setShareDisplay("block");
+        } else {
+            setShareDisplay("block");
+        }
+    } else {
+        setShareDisplay("none")
+    }
+
 }
 
 

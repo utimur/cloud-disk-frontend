@@ -1,7 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import "./diskSettings.css";
 import {useDispatch, useSelector} from "react-redux";
-import {createDir, getFilesOrderByName, getFilesOrderByType, getFilesOrderByDate} from "../../../../actions/file";
+import {
+    createDir,
+    getFilesOrderByName,
+    getFilesOrderByType,
+    getFilesOrderByDate,
+    getFilesByLink
+} from "../../../../actions/file";
 import {setCreateDirVisible, setDescOrder, setFileStyle} from "../../../../reducers/fileReducer";
 import listActiveLogo from '../../../../assets/img/button-list-active.svg'
 import listLogo from '../../../../assets/img/button-list.svg'
@@ -12,13 +18,14 @@ import bigPlateActiveLogo from "../../../../assets/img/button-big-plate-active.s
 import orderLogo from '../../../../assets/img/button-sort-order.svg'
 import orderDescLogo from '../../../../assets/img/button-sort-order-desc.svg'
 
-const DiskSettings = () => {
+const DiskSettings = (props) => {
 
     const dispatch = useDispatch()
     const filesStyle = useSelector(state => state.fileReducer.filesStyle);
     const parentId = useSelector(state => state.fileReducer.parentId);
     const descOrder = useSelector(state => state.fileReducer.descOrder);
     const [selectValue, setSelectValue] = useState("type")
+    const link = useSelector(state => state.fileReducer.link)
 
     function createNewDirClick(parentId) {
         dispatch(setCreateDirVisible("flex"));
@@ -29,18 +36,23 @@ const DiskSettings = () => {
     }
 
     useEffect(()=>{
-        switch (selectValue) {
-            case "name":
-                dispatch(getFilesOrderByName(parentId, descOrder))
-                break
-            case "type":
-                dispatch(getFilesOrderByType(parentId, descOrder))
-                break
-            case "date":
-                dispatch(getFilesOrderByDate(parentId, descOrder))
-                break
+        if (link == null) {
+            switch (selectValue) {
+                case "name":
+                    dispatch(getFilesOrderByName(parentId, descOrder));
+                    break;
+                case "type":
+                    dispatch(getFilesOrderByType(parentId, descOrder));
+                    break;
+                case "date":
+                    dispatch(getFilesOrderByDate(parentId, descOrder));
+                    break;
+            }
+        } else {
+            dispatch(getFilesByLink(link))
         }
-    }, [descOrder, selectValue])
+
+    }, [descOrder, selectValue, link])
 
     return (
         <div className="settings">

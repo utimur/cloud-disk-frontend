@@ -54,7 +54,7 @@ const Navbar = (props) => {
         <div className="navbar">
             <div className="navbar-wrap">
                 <img src={logo} alt=""/>
-                <div className="logo-name" onClick={()=>props.history.push("/")}>DropDisk</div>
+                <div className="logo-name" onClick={()=>props.history.push("/disk")}>DropDisk</div>
                 {isAuth &&
                 <input onChange={(e)=>searchInputChange(e)} value={searchValue} className="search-input" placeholder="Поиск по названию..." type="text"/>
                 }

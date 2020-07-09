@@ -1,15 +1,17 @@
-import React, {useRef, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import LeftBar from "./leftBar/LeftBar";
 import Disk from "./disk/Disk";
 import "./main.css";
 import CreateNewDir from "./createNewDir/CreateNewDir";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {Redirect} from "react-router-dom";
 import {logout} from "../../reducers/userReducer";
 import Uploader from "./uploader/Uploader";
+import {getFilesByLink} from "../../actions/file";
+import {setLink} from "../../reducers/fileReducer";
 
 const Main = (props) => {
-
+    const dispatch = useDispatch()
     const leftbarRef = useRef()
     const delRef = useRef()
     const [defaultPageX, setDefaultPageX] = useState(0);
@@ -17,7 +19,19 @@ const Main = (props) => {
     const [currentWidth, setCurrentWidth] = useState(170);
     const [defaultOffsetWidth, setDefaultOffsetWidth] = useState(0);
     const [down, setDown] = useState(false);
+    const isAuth = useSelector(state => state.userReducer.isAuth)
 
+
+    useEffect(()=> {
+        if (props.match.params.link !== undefined) {
+            console.log(props.match.params.link)
+            dispatch(setLink(props.match.params.link))
+            dispatch(getFilesByLink(props.match.params.link))
+        } else {
+            dispatch(setLink(null))
+        }
+
+    }, props.match.params.link);
 
     function moveAt(pageX, defaultPageX, offsetWidth) {
         if (down  && currentWidth + (pageX-defaultPageX)>=170 && currentWidth + (pageX-defaultPageX) <= 500) {
@@ -46,9 +60,7 @@ const Main = (props) => {
         e.stopPropagation()
         setDown(false)
         setCurrentWidth(width)
-        console.log(width)
     }
-
 
     return (
         <div onMouseUp={(e) => mouseUp(e)} onMouseMove={down ? (e) => onMouseMove(e) : ""} className="main">

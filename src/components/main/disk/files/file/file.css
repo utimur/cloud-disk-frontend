@@ -119,6 +119,7 @@
 }
 .share {
   grid-column-start: 4;
+  cursor: auto;
 }
 .share-menu {
   margin-top: 5px;
@@ -143,6 +144,7 @@
   color: #F6F5F3;
   border: none;
   outline: none;
+  margin-top: 5px;
 }
 .file-small-plate {
   margin-top: 15px;

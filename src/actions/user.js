@@ -9,7 +9,7 @@ export const login = (username, password, rememberMe, history, setActivateError,
             dispatch(userLogin(response.data.user))
             rememberMe == true ? localStorage.setItem("token", response.data.token) : sessionStorage.setItem("token", response.data.token)
             rememberMe == true ? localStorage.setItem("rememberMe", "true") : localStorage.setItem("rememberMe", "false")
-            history.push("/")
+            history.push("/disk")
         }
         catch (e) {
             switch (e.response.data.error) {
@@ -59,17 +59,17 @@ export const activation = (authorization) => {
         }
         catch (e) {
             switch (e.response.data.error) {
-                case "UserIsAlreadyActivatedException": {
-                    alert("User is already activated!")
-                    break;
-                }
-                case "UserNotFoundException": {
-                    alert("The user is not found");
-                    break;
-                }
-                default: {
-                    break;
-                }
+                    case "UserIsAlreadyActivatedException": {
+                        alert("User is already activated!")
+                        break;
+                    }
+                    case "UserNotFoundException": {
+                        alert("The user is not found");
+                        break;
+                    }
+                    default: {
+                        break;
+                    }
             }
 
         }

@@ -4,7 +4,14 @@ import directory from "../../../../../assets/img/directory.svg";
 import directoryDark from "../../../../../assets/img/directory-dark.svg";
 import fileLogo from "../../../../../assets/img/file.svg";
 import fileDarkLogo from "../../../../../assets/img/file-dark.svg";
-import {deleteFileFromServer, downloadFile, getFiles, sizeFormater} from "../../../../../actions/file";
+import {
+    deleteFileFromServer,
+    downloadFile,
+    getFiles,
+    getFilesByLink,
+    share,
+    sizeFormater
+} from "../../../../../actions/file";
 import {useDispatch, useSelector} from "react-redux";
 import {saveFavourite} from "../../../../../actions/favourites";
 import Checkbox from "../../../../../utils/checkbox/Checkbox";
@@ -15,16 +22,23 @@ const File = ({file}) => {
 
     const dispatch = useDispatch()
     const filesStyle = useSelector(state => state.fileReducer.filesStyle)
+    const link = useSelector(state => state.fileReducer.link)
+    const [shareLink, setShareLink] = useState(file.access_link);
     const [shareDisplay, setShareDisplay] = useState("none")
     const [shareChecked, setShareChecked] = useState(true)
     const [isFavourite, setIsFavourite] = useState(file.isFavourite)
+    const [copyBtnText, setCopyBtnText] = useState("Скопировать ссылку")
 
     function onFileClick(file) {
         if(file.type == "dir") {
-            dispatch(getFiles(file.id))
-            console.log(file)
+            if (link == null) {
+                dispatch(getFiles(file.id));
+            } else {
+                dispatch(getFilesByLink(link, file.id))
+            }
         }
     }
+
 
     function downloadClick(e) {
         e.stopPropagation()
@@ -43,23 +57,29 @@ const File = ({file}) => {
 
     function shareClick(e) {
         e.stopPropagation()
-        if (shareDisplay === "block") {
-            setShareDisplay("none");
-        } else {
-            setShareDisplay("block");
-        }
+        share(file, shareLink, setShareLink, shareDisplay, setShareDisplay).then(()=> setCopyBtnText("Скопировать ссылку"))
     }
 
     const Share = () => {
+        function copyClick() {
+            var aux = document.createElement("input");
+            aux.setAttribute("value", `${CLIENT_URL}/disk/${shareLink}`);
+            document.body.appendChild(aux);
+            aux.select();
+            document.execCommand("copy");
+            document.body.removeChild(aux);
+            setCopyBtnText("Скопировано в буфер обмена")
+        }
+
         return (
-            <div className="share" onClick={(e)=>e.stopPropagation()}>
+            <div className="share" onClick={(e)=>e.stopPropagation()} onMouseOver={(e)=> e.stopPropagation()}>
                 <div className="file-share-btn" ><button onClick={(e)=>shareClick(e)}/></div>
                 <div className="share-menu" style={{display:shareDisplay}}>
                     <div className="share-menu-flex">
-                        <div className="share-menu-flex-link">{CLIENT_URL}</div>
-                        <Checkbox checked={shareChecked} setChecked={setShareChecked}/>
+                        <div className="share-menu-flex-link">{CLIENT_URL}/disk/{shareLink}</div>
+                        {/*<Checkbox checked={shareChecked} setChecked={setShareChecked}/>*/}
                     </div>
-                    <button className="share-menu-btn">Копировать ссылку</button>
+                    <button className="share-menu-btn" onClick={() => copyClick()}>{copyBtnText}</button>
                 </div>
             </div>
         )

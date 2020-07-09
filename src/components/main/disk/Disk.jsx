@@ -3,12 +3,13 @@ import "./disk.css";
 import DiskSettings from "./diskSettings/DiskSettings";
 import Files from "./files/Files";
 import {useDispatch, useSelector} from "react-redux";
-import {getFiles, uploadFile} from "../../../actions/file";
+import {getFiles, getFilesByLink, uploadFile} from "../../../actions/file";
 
 const Disk = () => {
     const dispatch = useDispatch()
     const parentId = useSelector(state => state.fileReducer.parentId)
     const backId = useSelector(state => state.fileReducer.backId)
+    const link = useSelector(state => state.fileReducer.link)
     const [dragEnter, setDragEnter] = useState(false)
     const path = useSelector(state => state.fileReducer.path);
 
@@ -44,7 +45,11 @@ const Disk = () => {
 
 
     function backButtonClick() {
-        dispatch(getFiles(backId))
+        if (link == null) {
+            dispatch(getFiles(backId));
+        } else {
+            dispatch(getFilesByLink(link, backId))
+        }
     }
 
     return ( dragEnter == false ?

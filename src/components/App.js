@@ -14,7 +14,7 @@ const App = () => {
     const dispatch = useDispatch()
 
     useEffect(()=>{
-        dispatch(auth())
+        dispatch(auth());
     },[])
 
   return (
@@ -23,7 +23,8 @@ const App = () => {
             <Route component={Navbar}/>
             <div className="wrap">
                 {!isAuth && <Route path="/auth" component={Auth}/>}
-                {isAuth && <Route exact path="/" component={Main}/>}
+                <Route exact path="/disk/:link" component={Main}/>
+                {isAuth && <Route exact path="/disk" component={Main}/>}
                 {isAuth && <Route exact path="/profile" component={Profile}/>}
             </div>
         </div>

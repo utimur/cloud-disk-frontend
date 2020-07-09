@@ -19,5 +19,9 @@
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
+  align-items: center;
+}
+.regForm-checkboxAndButton button {
+  height: fit-content;
 }
 /*# sourceMappingURL=RegistrationForm.css.map */
