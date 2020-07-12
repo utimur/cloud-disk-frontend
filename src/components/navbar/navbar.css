@@ -63,4 +63,11 @@
   font-size: 14px;
   cursor: pointer;
 }
+.navbar-wrap .right .img {
+  background: url("../../../src/assets/img/navbar-avatar.svg") no-repeat center center;
+  background-size: cover;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+}
 /*# sourceMappingURL=navbar.css.map */

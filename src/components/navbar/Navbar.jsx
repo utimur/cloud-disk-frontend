@@ -61,7 +61,7 @@ const Navbar = (props) => {
                 {isAuth ?
                     <div className="right" onClick={()=>avatarClick()}>
                         <div className="username">{currentUser.username}</div>
-                        <img src={avatar} alt=""/>
+                        <div className={"img"} style={{backgroundImage: `url("data:image/jpg;base64, ${currentUser.avatar}")`}}/>
                         <div className="droplist" style={{display: dropListVisible}}>
                             <div className="droplist-item" onClick={()=>props.history.push("/profile")}>Профиль</div>
                             <div className="droplist-item" onClick={()=>logOutClick()}>Выход</div>

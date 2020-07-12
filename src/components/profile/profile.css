@@ -1,0 +1,60 @@
+.profile {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: white;
+  margin-top: 100px;
+  text-align: center;
+}
+.profile input {
+  display: none;
+}
+.profile label {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.profile-img {
+  background: url("../../../src/assets/img/navbar-avatar.svg") no-repeat center center;
+  background-size: cover;
+  height: 226px;
+  width: 226px;
+  border-radius: 50%;
+}
+.profile-name {
+  font-size: 48px;
+}
+.profile-email,
+.profile-freeSpace {
+  border: 4px solid white;
+  border-radius: 25px;
+  background-color: white;
+  padding: 5px 10px;
+}
+.profile-fields {
+  margin-top: 30px;
+  font-size: 36px;
+  color: black;
+}
+.profile-freeSpace {
+  margin-top: 30px;
+}
+.profile-buttons {
+  padding-top: 45px;
+  font-size: 24px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.profile-changePass {
+  padding-left: 15px;
+}
+.profile-resetDisk {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+/*# sourceMappingURL=profile.css.map */

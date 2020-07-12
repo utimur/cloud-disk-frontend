@@ -1,6 +1,6 @@
 import axios from 'axios'
 import {API_URL} from "../config";
-import {userLogin} from "../reducers/userReducer";
+import {updateUser, userLogin, updateUserAvatar} from "../reducers/userReducer";
 
 export const login = (username, password, rememberMe, history, setActivateError, setAuthError, setNeedSendActivation) => {
     return async (dispatch) => {
@@ -81,6 +81,19 @@ export const activationAgain = (username, password, needSendActivation) =>{
     axios.post(`${API_URL}/auth/login`, {username, password, needSendActivation}).catch(e => {
         alert("Activation is not sent")
     })
+}
+
+export const updateAvatar = (avatar) => {
+    return async (dispatch) => {
+        const authorization = localStorage.getItem("rememberMe") === "true" ? localStorage.getItem("token") : sessionStorage.getItem("token")
+        let formData = new FormData();
+        formData.append("img", avatar);
+        formData.append("filename", avatar.name);
+        const response = await axios.post(`${API_URL}/users/avatar`, formData, {headers: {Authorization: `Bearer ${authorization}`}})
+        console.log("Base64 is " + response.data.avatar)
+        dispatch(updateUserAvatar(response.data.avatar))
+    }
+
 }
 
 
